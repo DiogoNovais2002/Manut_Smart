@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Manut_Smart"
         tools:targetApi="31">
         <activity
+            android:name=".Report_avaria_decricao_cli"
+            android:exported="false" />
+        <activity
+            android:name=".Report_Avaria_Cli"
+            android:exported="false" />
+        <activity
             android:name=".Admin_main_page"
             android:exported="false" />
         <activity

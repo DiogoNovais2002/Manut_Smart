@@ -13,13 +13,14 @@
         android:orientation="vertical"
         android:padding="24dp"
         android:gravity="center_horizontal">
+
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/logout"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:contentDescription="Logout"/>
+            android:contentDescription="Logout"
+            android:src="@drawable/logout" />
 
         <ImageView
             android:layout_width="350dp"
