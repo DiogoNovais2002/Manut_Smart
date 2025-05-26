@@ -19,20 +19,20 @@
             android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:contentDescription="Logout"
+            android:contentDescription="@string/logout"
             android:src="@drawable/logout" />
 
         <ImageView
             android:layout_width="350dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:contentDescription="Logo"
+            android:contentDescription="@string/logo"
             android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Olá"
+            android:text="@string/Hi"
             android:textSize="50sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -43,13 +43,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="Gestão de Avarias de Equipamentos"
+            android:text="@string/IntroAdmin"
             android:textColor="@color/black"
             android:textSize="20sp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Reparações"
+            android:text="@string/Repair"
             android:layout_marginTop="40dp"
             style="@style/BlueButton"
             android:height="50dp" />
@@ -57,21 +57,21 @@
             style="@style/WhiteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Departamento"
+            android:text="@string/Departement"
             android:layout_marginTop="10dp"
             android:height="50dp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dispositivos"
+            android:text="@string/Devices"
             android:layout_marginTop="10dp"
             style="@style/WhiteButton"
             android:height="50dp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Técnicos"
+            android:text="@string/Tecnic"
             android:layout_marginTop="10dp"
             style="@style/WhiteButton"
             android:height="50dp" />

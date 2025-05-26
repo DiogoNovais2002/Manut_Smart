@@ -14,12 +14,11 @@
         android:padding="24dp"
         android:gravity="center_horizontal">
 
-        <!-- Botão de voltar -->
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="start"
-            android:contentDescription="Voltar"
+            android:contentDescription="@string/Back"
             android:src="@drawable/return_icon" />
 
         <!-- Logo -->
@@ -28,14 +27,14 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginTop="16dp"
-            android:contentDescription="Logo"
+            android:contentDescription="@string/logo"
             android:src="@drawable/logo" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Escolha o tipo de dispositivo com problema:"
+            android:text="@string/Choose_device"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -57,6 +56,7 @@
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_columnWeight="1"
+                android:focusable="true"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:background="#115C94"
@@ -70,12 +70,12 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/computer_icon"
-                    android:contentDescription="Computador" />
+                    android:contentDescription="@string/Computer" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Computador"
+                    android:text="@string/Computer"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
@@ -95,12 +95,12 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/iphone_icon"
-                    android:contentDescription="Telemóvel" />
+                    android:contentDescription="@string/Mobile" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Telemóvel"
+                    android:text="@string/Mobile"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
@@ -120,12 +120,12 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/tv_icon"
-                    android:contentDescription="Televisão" />
+                    android:contentDescription="@string/Tv" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Televisão"
+                    android:text="@string/Tv"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
@@ -145,12 +145,12 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/smartwatch_icon"
-                    android:contentDescription="Smartwatch" />
+                    android:contentDescription="@string/smartwatch" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Smartwatch"
+                    android:text="@string/smartwatch"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
@@ -170,14 +170,14 @@
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:contentDescription="Consola"
+                    android:contentDescription="@string/Console"
                     android:src="@drawable/controller_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Consola"
+                    android:text="@string/Console"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 

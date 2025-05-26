@@ -20,7 +20,7 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:src="@drawable/logo"
-        android:contentDescription="Logo" />
+        android:contentDescription="@string/logo" />
 
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
-            android:text="Urgência do serviço:"
+            android:text="@string/Urgency_of_service"
             android:textSize="24dp"
             android:textStyle="bold" />
 
@@ -36,16 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <RadioButton android:id="@+id/urgency_low" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Leve"/>
-            <RadioButton android:id="@+id/urgency_medium" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Média"/>
-            <RadioButton android:id="@+id/urgency_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alta"/>
+            <RadioButton android:id="@+id/urgency_low" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/light"/>
+            <RadioButton android:id="@+id/urgency_medium" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/average"/>
+            <RadioButton android:id="@+id/urgency_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/high"/>
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Lista de Dispositivos:"
+            android:text="@string/Devices_list"
             android:textSize="24dp"
             android:textStyle="bold" />
 
@@ -54,21 +54,21 @@
             android:layout_width="340dp"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
-            android:hint="Departamento"
+            android:hint="@string/Departement"
             android:inputType="text" />
 
         <EditText
             android:background="@drawable/edit_text_background"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:hint="Dispositivo"
+            android:hint="@string/Devices"
             android:inputType="text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Descricao do problema:"
+            android:text="@string/Problem_description"
             android:textSize="20dp" />
 
         <EditText
@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fotografias"
+            android:text="@string/Photo"
             android:layout_marginTop="16dp"
             android:textSize="20dp"/>
 
@@ -91,7 +91,7 @@
             android:background="@drawable/edit_text_background"
             android:layout_width="340dp"
             android:layout_height="155dp"
-            android:contentDescription="Carregar fotografia"
+            android:contentDescription="@string/Load_Photo"
             android:scaleType="centerInside" />
 
         <!-- Botões -->
@@ -107,7 +107,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancelar"
+                android:text="@string/Cancel"
                 android:backgroundTint="#AAAAAA" />
 
             <Button
@@ -115,7 +115,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Confirmar"
+                android:text="@string/Confirm"
                 android:layout_marginStart="8dp"
                 android:backgroundTint="#007BFF" />
         </LinearLayout>

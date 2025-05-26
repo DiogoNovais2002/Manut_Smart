@@ -1,4 +1,4 @@
-package com.example.manut_smart
+package com.ipvc.manut_smart
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
