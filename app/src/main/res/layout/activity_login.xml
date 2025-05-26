@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".RegisterActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,14 +19,13 @@
             android:layout_height="150dp"
             android:src="@drawable/logo"
             android:layout_marginTop="80dp"
-            android:contentDescription="Logo"
-            />
+            android:contentDescription="Logo" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Criar Conta"
+            android:text="Bem-vindo"
             android:textSize="50sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -34,6 +33,7 @@
             android:layout_marginBottom="40dp"
             android:layout_gravity="start"/>
 
+        <!-- Email -->
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
@@ -43,50 +43,23 @@
             android:background="@drawable/edit_text_background"
             android:padding="12dp" />
 
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/edit_text_background"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/editTextPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número de Telemóvel"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/edit_text_background"
-            android:padding="12dp" />
-
+        <!-- Senha -->
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Palavra-Passe"
             android:inputType="textPassword"
-            android:background="@drawable/edit_text_background"
-            android:height="50dp"
-            android:layout_marginTop="16dp"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/editTextConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirmar Palavra-Passe"
-            android:inputType="textPassword"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_background"
             android:padding="12dp" />
 
+        <!-- Botão Entrar -->
         <Button
-            android:id="@+id/buttonRegister"
+            android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registar"
+            android:text="Entrar"
             android:layout_marginTop="40dp"
             android:backgroundTint="#0059B2"
             android:height="50dp"
@@ -94,13 +67,13 @@
             android:textColor="#FFFFFF" />
 
         <TextView
-            android:id="@+id/textLogin"
+            android:id="@+id/textRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:clickable="true"
             android:focusable="true"
-            android:text="Ja tem conta? Inicie sessao"
+            android:text="Não tem conta? Registe-se"
             android:textColor="#0059B2"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck" />

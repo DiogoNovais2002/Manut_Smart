@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "959706657001",
+    "project_id": "cm-manutsmart",
+    "storage_bucket": "cm-manutsmart.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959706657001:android:85e0f535ceac6fe7d64078",
+        "android_client_info": {
+          "package_name": "com.ipvc.manut_smart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAivN-tv4WOT6ypVjqJmGE12ZugiPpp92M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

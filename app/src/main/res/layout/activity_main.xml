@@ -1,78 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="24dp"
     android:background="#FFFFFF"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem-vindo ao ManutSmart!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="60dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email@email.com"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/buttonLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:text="Sair"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#B20000"
+        android:layout_marginTop="40dp"
+        android:padding="12dp" />
 
-        <ImageView
-            android:layout_width="350dp"
-            android:layout_height="150dp"
-            android:src="@drawable/logo"
-            android:layout_marginTop="80dp"
-            android:contentDescription="Logo" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bem-vindo"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="40dp"
-            android:layout_gravity="start"/>
-
-        <!-- Email -->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/edit_text_background"
-            android:padding="12dp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Palavra-Passe"
-            android:inputType="textPassword"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/edit_text_background"
-            android:padding="12dp" />
-
-
-        <!-- Botão Entrar -->
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Entrar"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="#0059B2"
-            android:height="50dp"
-            style="@style/BlueButton"
-            android:textColor="#FFFFFF" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="Não tem conta? Registe-se"
-            android:textColor="#0059B2"
-            android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck" />
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
