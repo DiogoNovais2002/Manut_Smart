@@ -78,9 +78,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateBasedOnRole(role: String?) {
         when (role) {
-            "admin" -> startActivity(Intent(this, MainActivity::class.java))
-            "technician" -> startActivity(Intent(this, MainActivity::class.java))
-            else -> startActivity(Intent(this, MainActivity::class.java))
+            "admin" -> startActivity(Intent(this, MenuAdminActivity::class.java))
+            "technician" -> startActivity(Intent(this, MenuTechnicalActivity::class.java))
+            else -> startActivity(Intent(this, MenuUserActivity::class.java))
         }
         finish()
     }

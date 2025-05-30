@@ -13,15 +13,24 @@
         android:theme="@style/Theme.Manut_Smart"
         tools:targetApi="31">
         <activity
+            android:name=".MenuTechnicalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

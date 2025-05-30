@@ -85,7 +85,7 @@ class RegisterActivity : AppCompatActivity() {
                             .set(userMap)
                             .addOnSuccessListener {
                                 Toast.makeText(this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, MainActivity::class.java))
+                                startActivity(Intent(this, LoginActivity::class.java))
                                 finish()
                             }
                             .addOnFailureListener { e ->
