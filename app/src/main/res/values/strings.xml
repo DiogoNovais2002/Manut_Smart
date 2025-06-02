@@ -56,6 +56,18 @@
     <string name="Finish_Repair">Finalizar Reparaçoes</string>
     <string name="Repair_Description">Descrição da ReparaçãO</string>
     <string name="Mesage">Mensagem ...</string>
+    <string name="Repair_History">Historico de Reparaçoes</string>
+    <string name="Create_Department">Criar Departamento</string>
+    <string name="Department_List">Lista de Departamentos</string>
+    <string name="Enable_Disable_Department">Ativar/ Desativar Departamento</string>
+    <string name="Device_Register">Registar Dispositivo</string>
+    <string name="Device_List">Lista de Dispositivos</string>
+    <string name="Enable_Disable_Device">Ativar / Desativar Dispositivo</string>
+    <string name="Devices_management">Gestao de Dispositivos:</string>
+    <string name="Technicians_Register">Registar Tecnico</string>
+    <string name="technicians_list">Lista de Tecnicos</string>
+    <string name="enable_technicians">Ativar / Desativar Tecnico</string>
+    <string name="technical_reports">Relatorio de Tecnico</string>
 
     <style name="OngoingRepairs">Reparaçoes em curso</style>
 </resources>
