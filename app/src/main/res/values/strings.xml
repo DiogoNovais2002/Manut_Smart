@@ -68,6 +68,12 @@
     <string name="technicians_list">Lista de Tecnicos</string>
     <string name="enable_technicians">Ativar / Desativar Tecnico</string>
     <string name="technical_reports">Relatorio de Tecnico</string>
+    <string name="Description">Descrição</string>
+    <string name="Loc">Localização</string>
+    <string name="Number">Número de série</string>
+    <string name="Add_Device">Adicionar Dispositivo</string>
+    <string name="Devices_List">Lista de Disposittivos</string>
+    <string name="Tec_List">Lista de Tecnicos</string>
 
     <style name="OngoingRepairs">Reparaçoes em curso</style>
 </resources>
