@@ -44,4 +44,12 @@
     <string name="Ongoing_repair">Reparação em curso</string>
     <string name="Finish_repair">Finalizar Reparação</string>
     <string name="repair_history">Histórico de Reparações</string>
+    <string name="plus">+</string>
+    <string name="repair_List">Lista de Avarias</string>
+    <string name="Pending_repairs">Reparações Pendentes</string>
+    <string name="Search">Pesquisar</string>
+    <string name="Filter">Filtrar</string>
+    <string name="Urgency">Urgência</string>
+    <string name="Date">Data do pedido</string>
+    <string name="Repair1">Reparar</string>
 </resources>

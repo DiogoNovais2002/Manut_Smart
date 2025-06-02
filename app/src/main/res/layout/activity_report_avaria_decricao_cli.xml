@@ -29,7 +29,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
             android:text="@string/Urgency_of_service"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/Devices_list"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <EditText
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/Problem_description"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:layout_width="340dp"
@@ -79,13 +79,12 @@
             android:gravity="top"
             android:inputType="textMultiLine" />
 
-        <!-- Upload de Foto -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Photo"
             android:layout_marginTop="16dp"
-            android:textSize="20dp"/>
+            android:text="@string/Photo"
+            android:textSize="20sp" />
 
         <ImageView
             android:background="@drawable/edit_text_background"
@@ -96,7 +95,7 @@
 
         <!-- Botões -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="24dp"
@@ -104,15 +103,16 @@
 
             <Button
                 android:id="@+id/cancel_button"
-                android:layout_width="0dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="30dp"
                 android:text="@string/Cancel"
                 android:backgroundTint="#AAAAAA" />
 
             <Button
                 android:id="@+id/confirm_button"
-                android:layout_width="0dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Confirm"
