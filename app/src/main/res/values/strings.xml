@@ -52,4 +52,10 @@
     <string name="Urgency">Urgência</string>
     <string name="Date">Data do pedido</string>
     <string name="Repair1">Reparar</string>
+    <string name="Finish">Finalizar</string>
+    <string name="Finish_Repair">Finalizar Reparaçoes</string>
+    <string name="Repair_Description">Descrição da ReparaçãO</string>
+    <string name="Mesage">Mensagem ...</string>
+
+    <style name="OngoingRepairs">Reparaçoes em curso</style>
 </resources>
