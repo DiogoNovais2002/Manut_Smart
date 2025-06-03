@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
                         navigateBasedOnRole(role)
                     } else {
                         Toast.makeText(this, "Erro: utilizador não encontrado", Toast.LENGTH_SHORT).show()
+                        FirebaseAuth.getInstance().signOut()
                     }
                 }
             return
