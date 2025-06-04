@@ -13,10 +13,16 @@
         android:theme="@style/Theme.Manut_Smart"
         tools:targetApi="31">
         <activity
+            android:name=".admin.Departments.EnableDesableDepartmet.EnableDisableDepartmentsAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Departments.ListDepartmentsAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.SubMenuDeviceAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.SubMenuDepartmentAdminActivity"
+            android:name=".admin.Departments.SubMenuDepartmentAdminActivity"
             android:exported="false" />
         <activity
             android:name=".admin.SubMenuTechnicalAdminActivity"
@@ -28,7 +34,7 @@
             android:name=".admin.Create_Tec"
             android:exported="false" />
         <activity
-            android:name=".admin.Create_Department"
+            android:name=".admin.Departments.CreateDepartmentAdminActivity"
             android:exported="false" />
         <activity
             android:name=".admin.Enable_Devices"
