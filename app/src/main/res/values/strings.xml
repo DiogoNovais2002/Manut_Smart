@@ -52,7 +52,6 @@
     <string name="Urgency">Urgência</string>
     <string name="Date">Data do pedido</string>
     <string name="Repair1">Reparar</string>
-    <string name="Finish">Finalizar</string>
     <string name="RepairDescription">Descrição da ReparaçãO</string>
     <string name="Mesage">Mensagem ...</string>
     <string name="CreateDepartment">Criar Departamento</string>
@@ -74,11 +73,13 @@
     <string name="DepartmentManager">Gestão de Departamentos</string>
     <string name="DevicesManager">Gestão de Dispositivos</string>
     <string name="TechnicalManager">Gestão de Técnicos</string>
+
+    #States
     <string name="Active">Ativar</string>
     <string name="Inactive">Desativar</string>
     <string name="Enabled">Ativado</string>
     <string name="Disabled">Desativado</string>
-
+    <string name="Finish">Finalizar</string>
 
 
     <style name="OngoingRepairs">Reparaçoes em curso</style>
