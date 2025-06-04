@@ -36,7 +36,11 @@ class DepartmentListAdapter(
             append(department.location)
         }
 
-        toggleButton.text = if (department.is_active) "Desativar" else "Ativar"
+        toggleButton.text = if (department.is_active)
+            context.getString(R.string.Inactive)
+        else
+            context.getString(R.string.Active)
+
 
         toggleButton.setOnClickListener {
             onToggleClick(department)

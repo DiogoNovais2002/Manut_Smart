@@ -1,5 +1,6 @@
 package com.ipvc.manut_smart.admin.Departments.EnableDesableDepartmet
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.ListView
@@ -12,8 +13,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.admin.Departments.DepartementData.Department
 
+
 class EnableDisableDepartmentsAdminActivity : AppCompatActivity() {
 
+    private lateinit var context: Context
     private lateinit var db: FirebaseFirestore
     private lateinit var listView: ListView
     private val departmentList = mutableListOf<Department>()
@@ -75,7 +78,12 @@ class EnableDisableDepartmentsAdminActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 department.is_active = newState
                 adapter.notifyDataSetChanged()
-                Toast.makeText(this, "${department.name} ${if (newState) "true" else "false"}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "${department.location} - ${if (newState) getString(R.string.Enabled) else getString(R.string.Disabled)}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Error toggling department", Toast.LENGTH_SHORT).show()

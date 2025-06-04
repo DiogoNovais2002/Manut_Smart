@@ -73,7 +73,13 @@
     <string name="TecList">Lista de Técnicos</string>
     <string name="DepartmentManager">Gestão de Departamentos</string>
     <string name="DevicesManager">Gestão de Dispositivos</string>
-    <string name="TechnicalManager">Gestão de Técnicos</string>"
+    <string name="TechnicalManager">Gestão de Técnicos</string>
+    <string name="Active">Ativar</string>
+    <string name="Inactive">Desativar</string>
+    <string name="Enabled">Ativado</string>
+    <string name="Disabled">Desativado</string>
+
+
 
     <style name="OngoingRepairs">Reparaçoes em curso</style>
 </resources>
