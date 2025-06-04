@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".Register_device">
+    tools:context=".admin.Register_device">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/logo"
-                android:contentDescription="@string/logo" />
+                android:contentDescription="@string/Logo" />
 
 
         </LinearLayout>
@@ -39,7 +39,7 @@
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Add_Device"
+            android:text="@string/AddDevice"
             android:textSize="20sp"
             android:textStyle="bold" />
         <LinearLayout

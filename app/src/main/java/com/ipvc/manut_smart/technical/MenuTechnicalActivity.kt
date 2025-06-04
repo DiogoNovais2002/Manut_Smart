@@ -1,4 +1,4 @@
-package com.ipvc.manut_smart
+package com.ipvc.manut_smart.technical
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.ipvc.manut_smart.LoginActivity
+import com.ipvc.manut_smart.R
 
-class MenuAdminActivity : AppCompatActivity() {
+class MenuTechnicalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_menu_admin)
+        setContentView(R.layout.activity_menu_technical)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -24,7 +26,6 @@ class MenuAdminActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
 
         if (user == null) {
-
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

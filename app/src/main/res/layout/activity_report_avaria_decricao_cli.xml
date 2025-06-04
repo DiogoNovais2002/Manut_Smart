@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".Report_avaria_decricao_cli">
+    tools:context=".user.Report_avaria_decricao_cli">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:src="@drawable/logo"
-        android:contentDescription="@string/logo" />
+        android:contentDescription="@string/Logo" />
 
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
-            android:text="@string/Urgency_of_service"
+            android:text="@string/UrgencyOfService"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -36,16 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <RadioButton android:id="@+id/urgency_low" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/light"/>
-            <RadioButton android:id="@+id/urgency_medium" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/average"/>
-            <RadioButton android:id="@+id/urgency_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/high"/>
+            <RadioButton android:id="@+id/urgency_low" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Light"/>
+            <RadioButton android:id="@+id/urgency_medium" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Average"/>
+            <RadioButton android:id="@+id/urgency_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/High"/>
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/Devices_list"
+            android:text="@string/DevicesList"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/Problem_description"
+            android:text="@string/ProblemDescription"
             android:textSize="20sp" />
 
         <EditText
@@ -90,7 +90,7 @@
             android:background="@drawable/edit_text_background"
             android:layout_width="340dp"
             android:layout_height="155dp"
-            android:contentDescription="@string/Load_Photo"
+            android:contentDescription="@string/LoadPhoto"
             android:scaleType="centerInside" />
 
         <!-- Botões -->

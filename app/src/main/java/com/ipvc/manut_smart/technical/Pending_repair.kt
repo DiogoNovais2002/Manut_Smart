@@ -1,4 +1,4 @@
-package com.ipvc.manut_smart
+package com.ipvc.manut_smart.technical
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ipvc.manut_smart.R
 
 class Pending_repair : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

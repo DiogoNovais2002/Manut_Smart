@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".Create_Tec">
+    tools:context=".admin.Create_Tec">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/logo"
-                android:contentDescription="@string/logo" />
+                android:contentDescription="@string/Logo" />
 
 
         </LinearLayout>
@@ -39,7 +39,7 @@
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Add_Device"
+            android:text="@string/AddDevice"
             android:textSize="20sp"
             android:textStyle="bold" />
         <LinearLayout
@@ -62,7 +62,7 @@
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
+                android:hint="@string/Email"
                 android:background="@drawable/rounded_border"
                 android:padding="12dp"
                 android:layout_marginBottom="12dp" />
@@ -81,7 +81,7 @@
                 android:id="@+id/editTextPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Mobile_number"
+                android:hint="@string/MobileNumber"
                 android:background="@drawable/rounded_border"
                 android:padding="12dp"
                 android:gravity="top"

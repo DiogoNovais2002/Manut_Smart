@@ -9,6 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.ipvc.manut_smart.admin.MenuAdminActivity
+import com.ipvc.manut_smart.technical.MenuTechnicalActivity
+import com.ipvc.manut_smart.user.MenuUserActivity
 
 class LoginActivity : AppCompatActivity() {
 

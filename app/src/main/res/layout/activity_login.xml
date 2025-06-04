@@ -38,7 +38,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
+            android:hint="@string/Email"
             android:inputType="textEmailAddress"
             android:background="@drawable/edit_text_background"
             android:padding="12dp" />

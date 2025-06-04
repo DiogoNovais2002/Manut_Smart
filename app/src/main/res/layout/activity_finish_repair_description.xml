@@ -7,7 +7,7 @@
     android:padding="24dp"
     android:background="#FFFFFF"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Finish_Repair_description">
+    tools:context=".technical.Finish_Repair_description">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,12 +31,12 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/logo"
-                android:contentDescription="@string/logo" />
+                android:contentDescription="@string/Logo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Finish_Repair"
+                android:text="@string/FinishRepair"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="20dp" />
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Repair_Description"
+                android:text="@string/RepairDescription"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginBottom="12dp" />

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".List_Tec_Admin">
+    tools:context=".admin.List_Tec_Admin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,14 +31,14 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/logo"
-                android:contentDescription="@string/logo" />
+                android:contentDescription="@string/Logo" />
         </LinearLayout>
 
         <TextView
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Tec_List"
+            android:text="@string/TecList"
             android:textSize="20sp"
             android:textStyle="bold" />
 
