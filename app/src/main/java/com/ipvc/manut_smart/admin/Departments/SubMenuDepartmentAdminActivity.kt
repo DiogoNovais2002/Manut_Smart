@@ -45,12 +45,6 @@ class SubMenuDepartmentAdminActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val btnListDepartments = findViewById<Button>(R.id.btnListDepartments)
-        btnListDepartments.setOnClickListener {
-            val intent = Intent(this, ListDepartmentsAdminActivity::class.java)
-            startActivity(intent)
-        }
-
         val btnEnableDisableDepartment = findViewById<Button>(R.id.btnEnableDisableDepartment)
         btnEnableDisableDepartment.setOnClickListener {
             val intent = Intent(this, EnableDisableDepartmentsAdminActivity::class.java)

@@ -55,15 +55,6 @@
                 android:height="50dp" />
 
             <Button
-                android:id="@+id/btnListDepartments"
-                style="@style/WhiteButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/DepartmentList"
-                android:layout_marginTop="10dp"
-                android:height="50dp" />
-
-            <Button
                 android:id="@+id/btnEnableDisableDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

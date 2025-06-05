@@ -16,9 +16,6 @@
             android:name=".admin.Departments.EnableDesableDepartmet.EnableDisableDepartmentsAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.Departments.ListDepartmentsAdminActivity"
-            android:exported="false" />
-        <activity
             android:name=".admin.Devices.SubMenuDeviceAdminActivity"
             android:exported="false" />
         <activity
