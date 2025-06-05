@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".admin.List_Tec_Admin">
+    tools:context=".admin.Technician.List_Tec_Admin">
 
     <LinearLayout
         android:layout_width="match_parent"

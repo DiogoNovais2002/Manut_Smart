@@ -6,19 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".admin.Create_Tec">
+    android:background="#FFFFFF"
+    tools:context=".admin.Technician.RegisterTechnicianAdminActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/return_icon"
-            android:contentDescription="@string/Back" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,12 +30,13 @@
 
 
         </LinearLayout>
+
         <TextView
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/AddDevice"
-            android:textSize="20sp"
+            android:text="@string/AddTechnician"
+            android:textSize="30sp"
             android:textStyle="bold" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,6 +64,15 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextMobilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/MobileNumber"
+                android:background="@drawable/rounded_border"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,14 +83,14 @@
                 android:inputType="textPassword"/>
 
             <EditText
-                android:id="@+id/editTextPhoneNumber"
+                android:id="@+id/editTextConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/MobileNumber"
+                android:hint="@string/ConfirmPassword"
                 android:background="@drawable/rounded_border"
                 android:padding="12dp"
-                android:gravity="top"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="12dp"
+                android:inputType="textPassword"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,6 +100,7 @@
                 android:layout_marginTop="16dp">
 
                 <Button
+                    android:id="@+id/buttonCancel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -104,6 +110,7 @@
                     android:textColor="#FFFFFF" />
 
                 <Button
+                    android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

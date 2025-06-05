@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
                         val role = document.getString("role")
                         navigateBasedOnRole(role)
                     } else {
-                        Toast.makeText(this, "Erro: utilizador não encontrado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.UserNotFound), Toast.LENGTH_SHORT).show()
                     }
                 }
             return
@@ -58,18 +58,24 @@ class LoginActivity : AppCompatActivity() {
                             db.collection("users").document(uid).get()
                                 .addOnSuccessListener { document ->
                                     if (document.exists()) {
+                                        val isActive = document.getBoolean("isActive") ?: false
+                                        if (!isActive) {
+                                            Toast.makeText(this, getString(R.string.UserDisabled), Toast.LENGTH_LONG).show()
+                                            auth.signOut()
+                                            return@addOnSuccessListener
+                                        }
                                         val role = document.getString("role")
                                         navigateBasedOnRole(role)
                                     } else {
-                                        Toast.makeText(this, "Erro ao carregar dados do utilizador", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this, getString(R.string.ErrorLoadingData), Toast.LENGTH_SHORT).show()
                                     }
                                 }
                         } else {
-                            Toast.makeText(this, "Erro no login: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Error login: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                         }
                     }
             } else {
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.FieldAllFields), Toast.LENGTH_SHORT).show()
             }
         }
 

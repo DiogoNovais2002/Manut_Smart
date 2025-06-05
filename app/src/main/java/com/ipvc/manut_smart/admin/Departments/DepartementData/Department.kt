@@ -5,8 +5,4 @@ data class Department(
     val name: String = "",
     val location: String = "",
     var is_active: Boolean = true
-){
-    override fun toString(): String {
-        return "$name - $location"
-    }
-}
+)

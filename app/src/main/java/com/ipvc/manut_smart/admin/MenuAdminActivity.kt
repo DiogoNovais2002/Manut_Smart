@@ -13,6 +13,7 @@ import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.admin.Departments.SubMenuDepartmentAdminActivity
 import com.ipvc.manut_smart.admin.Devices.SubMenuDeviceAdminActivity
+import com.ipvc.manut_smart.admin.Technician.SubMenuTechnicianAdminActivity
 
 class MenuAdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +66,7 @@ class MenuAdminActivity : AppCompatActivity() {
 
         val techniciansButton = findViewById<Button>(R.id.technicians)
         techniciansButton.setOnClickListener {
-            val intent = Intent(this, SubMenuTechnicalAdminActivity::class.java)
+            val intent = Intent(this, SubMenuTechnicianAdminActivity::class.java)
             startActivity(intent)
         }
     }
