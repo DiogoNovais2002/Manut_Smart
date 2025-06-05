@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MenuTechnicalActivity">
+    tools:context=".technical.MenuTechnicalActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:contentDescription="@string/logout"
+            android:contentDescription="@string/Logout"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/logout" />
@@ -29,7 +29,7 @@
             android:layout_width="350dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:contentDescription="@string/logo"
+            android:contentDescription="@string/Logo"
             android:src="@drawable/logo" />
 
         <TextView
@@ -52,7 +52,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Start_Repair"
+            android:text="@string/StartRepair"
             android:layout_marginTop="40dp"
             style="@style/BlueButton"
             android:height="50dp" />
@@ -60,21 +60,21 @@
             style="@style/WhiteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Ongoing_repair"
+            android:text="@string/OngoingRepair"
             android:layout_marginTop="10dp"
             android:height="50dp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Finish_repair"
+            android:text="@string/FinishRepair"
             android:layout_marginTop="10dp"
             style="@style/WhiteButton"
             android:height="50dp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/repair_history"
+            android:text="@string/RepairHistory"
             android:layout_marginTop="10dp"
             style="@style/WhiteButton"
             android:height="50dp" />

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MenuAdminActivity">
+    tools:context=".admin.MenuAdminActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:contentDescription="@string/logout"
+            android:contentDescription="@string/Logout"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/logout" />
@@ -29,7 +29,7 @@
             android:layout_width="350dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:contentDescription="@string/logo"
+            android:contentDescription="@string/Logo"
             android:src="@drawable/logo" />
 
         <TextView
@@ -49,14 +49,18 @@
             android:text="@string/IntroAdmin"
             android:textColor="@color/black"
             android:textSize="20sp" />
+
         <Button
+            android:id="@+id/repair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Repair"
             android:layout_marginTop="40dp"
             style="@style/BlueButton"
             android:height="50dp" />
+
         <Button
+            android:id="@+id/department"
             style="@style/WhiteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,13 +69,16 @@
             android:height="50dp" />
 
         <Button
+            android:id="@+id/devices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Devices"
             android:layout_marginTop="10dp"
             style="@style/WhiteButton"
             android:height="50dp" />
+
         <Button
+            android:id="@+id/technicians"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Tecnic"

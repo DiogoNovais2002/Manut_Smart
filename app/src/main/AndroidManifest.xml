@@ -13,13 +13,56 @@
         android:theme="@style/Theme.Manut_Smart"
         tools:targetApi="31">
         <activity
-            android:name=".MenuTechnicalActivity"
+            android:name=".admin.Departments.EnableDesableDepartmet.EnableDisableDepartmentsAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuUserActivity"
+            android:name=".admin.Devices.SubMenuDeviceAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuAdminActivity"
+            android:name=".admin.Departments.SubMenuDepartmentAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Technician.SubMenuTechnicianAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Technician.List_Tec_Admin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Technician.RegisterTechnicianAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Departments.CreateDepartmentAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Devices.EnableDisableDevices.EnableDisableDevicesAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Devices.RegisterDeviceAdminActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".user.Repair_history"
+            android:exported="false" />
+        <activity
+            android:name=".technical.Finish_Repair_description"
+            android:exported="false" />
+        <activity
+            android:name=".technical.Finish_repair_technical"
+            android:exported="false" />
+        <activity
+            android:name=".technical.Pending_repair"
+            android:exported="false" />
+        <activity
+            android:name=".user.List_repairs_cliente"
+            android:exported="false" />
+        <activity
+            android:name=".technical.MenuTechnicalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.MenuUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.MenuAdminActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

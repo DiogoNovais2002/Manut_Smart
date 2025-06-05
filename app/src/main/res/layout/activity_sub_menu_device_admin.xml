@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".admin.Departments.SubMenuDepartmentAdminActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/return_icon"
+            android:contentDescription="@string/Back" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="@string/Logo"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="25dp"
+                android:text="@string/DevicesManager"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnAddDevice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/AddDevice"
+                android:layout_marginTop="40dp"
+                style="@style/BlueButton"
+                android:height="50dp" />
+
+            <Button
+                android:id="@+id/btnEnableDisableDevices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/EnableDisableDevice"
+                android:layout_marginTop="10dp"
+                style="@style/WhiteButton"
+                android:height="50dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

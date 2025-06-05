@@ -1,47 +1,128 @@
 <resources>
+
+    <!-- App Info -->
     <string name="app_name">Manut_Smart</string>
-    <string name="title_activity_register">RegisterActivity</string>
+    <string name="TitleActivityRegister">RegisterActivity</string>
+    <string name="Logo">Logo</string>
+
+    <!-- Auth & User Interaction -->
     <string name="Welcome">Bem-vindo</string>
-    <string name="email">Email</string>
+    <string name="Email">Email</string>
     <string name="Password">Palavra-Passe</string>
     <string name="Enter">Entrar</string>
     <string name="Register">Não tem conta? Registe-se</string>
-    <string name="Create_Account">Criar Conta</string>
+    <string name="CreateAccount">Criar Conta</string>
     <string name="Name">Nome</string>
-    <string name="Mobile_number">Número de Telemóvel</string>
-    <string name="Confirm_Password">Confirmar Palavra-Passe</string>
-    <string name="registarbtn">Registar</string>
-    <string name="Text_Register">Ja tem conta? Inicie sessao</string>
+    <string name="MobileNumber">Número de Telemóvel</string>
+    <string name="ConfirmPassword">Confirmar Palavra-Passe</string>
+    <string name="RegistarBtn">Registar</string>
+    <string name="TextRegister">Ja tem conta? Inicie sessao</string>
     <string name="Hi">Olá</string>
+    <string name="Logout">Logout</string>
+    <string name="Mesage">Mensagem ...</string>
+    <string name="UserDisabled">Utilizador desativado. Entre em contacto com o administrador.</string>
+    <string name="UserNotFound">Erro: Utilizador não encontrado</string>
+
+    <!-- Admin & Navigation -->
     <string name="IntroAdmin">Gestão de Avarias de Equipamentos</string>
     <string name="Repair">Reparações</string>
     <string name="Departement">Departamentos</string>
     <string name="Devices">Dispositivos</string>
     <string name="Tecnic">Técnicos</string>
-    <string name="logo">Logo</string>
-    <string name="logout">Logout</string>
-    <string name="Report_Fault">Reportar Avaria</string>
-    <string name="Ongoing_reports">Avarias em curso</string>
-    <string name="Fault_History">Histórico de Avarias</string>
     <string name="Back">Voltar</string>
-    <string name="Choose_device">Escolha o tipo de dispositivo com problema:</string>
+    <string name="Search">Pesquisar</string>
+    <string name="Filter">Filtrar</string>
+    <string name="Urgency">Urgência</string>
+    <string name="Date">Data do pedido</string>
+    <string name="Plus">+</string>
+
+    <!-- Fault Reporting -->
+    <string name="ReportFault">Reportar Avaria</string>
+    <string name="OngoingReports">Avarias em curso</string>
+    <string name="FaultHistory">Histórico de Avarias</string>
+    <string name="RepairList">Lista de Avarias</string>
+    <string name="PendingRepairs">Reparações Pendentes</string>
+    <string name="ChooseDevice">Escolha o tipo de dispositivo com problema:</string>
+    <string name="UrgencyOfService">Urgência do serviço:</string>
+    <string name="DevicesList">Lista de Dispositivos:</string>
+    <string name="Photo">Fotografias</string>
+    <string name="ProblemDescription">Descricao do problema:</string>
+    <string name="LoadPhoto">Carregar fotografia</string>
+    <string name="Cancel">Cancelar</string>
+    <string name="Confirm">Confirmar</string>
+
+    <!-- Repair Flow -->
+    <string name="StartRepair">Iniciar Reparação</string>
+    <string name="OngoingRepair">Reparação em curso</string>
+    <string name="FinishRepair">Finalizar Reparação</string>
+    <string name="RepairHistory">Histórico de Reparações</string>
+    <string name="Repair1">Reparar</string>
+    <string name="RepairDescription">Descrição da ReparaçãO</string>
+
+    <!-- Device Types -->
     <string name="Computer">Computador</string>
     <string name="Mobile">Telemóvel</string>
     <string name="Tv">Televisão</string>
-    <string name="smartwatch">Smartwatch</string>
+    <string name="Smartwatch">Smartwatch</string>
     <string name="Console">Consola</string>
-    <string name="Urgency_of_service">Urgência do serviço:</string>
-    <string name="light">Leve</string>
-    <string name="average">Média</string>
-    <string name="high">Alta</string>
-    <string name="Devices_list">Lista de Dispositivos:</string>
-    <string name="Photo">Fotografias</string>
-    <string name="Problem_description">Descricao do problema:</string>
-    <string name="Load_Photo">Carregar fotografia</string>
-    <string name="Cancel">Cancelar</string>
-    <string name="Confirm">Confirmar</string>
-    <string name="Start_Repair">Iniciar Reparação</string>
-    <string name="Ongoing_repair">Reparação em curso</string>
-    <string name="Finish_repair">Finalizar Reparação</string>
-    <string name="repair_history">Histórico de Reparações</string>
+    <string name="Fixed">Computador Fixo</string>
+    <string name="projector">Projetor</string>
+    <string name="InteractiveWhiteboard">Quadro Interativo</string>
+
+    <!-- Urgency Levels -->
+    <string name="Light">Leve</string>
+    <string name="Average">Média</string>
+    <string name="High">Alta</string>
+
+    <!-- Device Management -->
+    <string name="DeviceRegister">Registar Dispositivo</string>
+    <string name="DeviceList">Lista de Dispositivos</string>
+    <string name="EnableDisableDevice">Ativar / Desativar Dispositivo</string>
+    <string name="DevicesManagement">Gestao de Dispositivos:</string>
+    <string name="AddDevice">Adicionar Dispositivo</string>
+    <string name="Model">Modelo</string>
+    <string name="Branch">Marca</string>
+    <string name="Number">Número de série</string>
+    <string name="DevicesManager">Gestão de Dispositivos</string>
+
+    <!-- Technician Management -->
+    <string name="TechniciansRegister">Registar Técnico</string>
+    <string name="TechniciansList">Lista de Técnicos</string>
+    <string name="EnableTechnicians">Ativar / Desativar Técnico</string>
+    <string name="TechnicalReports">Relatorio de Técnico</string>
+    <string name="TecList">Lista de Técnicos</string>
+    <string name="TechnicalManager">Gestão de Técnicos</string>
+    <string name="AddTechnician">Adicionar Técnico</string>
+
+    <!-- Department Management -->
+    <string name="CreateDepartment">Criar Departamento</string>
+    <string name="DepartmentList">Lista de Departamentos</string>
+    <string name="EnableDisableDepartment">Ativar / Desativar Departamento</string>
+    <string name="DepartmentManager">Gestão de Departamentos</string>
+    <string name="Department">Departamento</string>
+    <string name="SelectDepartment">Selecione Departamento</string>
+
+    <!-- Location & Description -->
+    <string name="Description">Descrição</string>
+    <string name="Loc">Localização</string>
+
+    <!-- States -->
+    <string name="Active">Ativar</string>
+    <string name="Inactive">Desativar</string>
+    <string name="Enabled">Ativado</string>
+    <string name="Disabled">Desativado</string>
+    <string name="Finish">Finalizar</string>
+
+    <!-- Error Messages -->
+    <string name="ErrorLoadingData">Erro a carregar os dados</string>
+    <string name="ErrorUpdateData">Erro a atualizar os dados</string>
+    <string name="ErrorRegistering">Erro no Registo</string>
+
+    <!-- Warning Messages -->
+    <string name="FieldAllFields">Preencha todos os campos</string>
+
+    <!-- Success Messages -->
+    <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>
+    <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>
+
 </resources>

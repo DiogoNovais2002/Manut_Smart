@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Create_Account"
+            android:text="@string/CreateAccount"
             android:textSize="50sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -38,7 +38,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
+            android:hint="@string/Email"
             android:inputType="textEmailAddress"
             android:background="@drawable/edit_text_background"
             android:padding="12dp" />
@@ -56,7 +56,7 @@
             android:id="@+id/editTextPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Mobile_number"
+            android:hint="@string/MobileNumber"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_background"
             android:padding="12dp" />
@@ -76,7 +76,7 @@
             android:id="@+id/editTextConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Confirm_Password"
+            android:hint="@string/ConfirmPassword"
             android:inputType="textPassword"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_background"
@@ -86,7 +86,7 @@
             android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/registarbtn"
+            android:text="@string/RegistarBtn"
             android:layout_marginTop="40dp"
             android:backgroundTint="#0059B2"
             android:height="50dp"
@@ -100,7 +100,7 @@
             android:layout_marginTop="16dp"
             android:clickable="true"
             android:focusable="true"
-            android:text="@string/Text_Register"
+            android:text="@string/TextRegister"
             android:textColor="#0059B2"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck" />

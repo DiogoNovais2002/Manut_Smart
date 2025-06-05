@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".technical.Finish_Repair_description">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/return_icon"
+            android:contentDescription="@string/Back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/logo"
+                android:contentDescription="@string/Logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FinishRepair"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_border"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/RepairDescription"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/editDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:hint="@string/Mesage"
+                android:gravity="top|start"
+                android:background="@drawable/rouded_text"
+                android:padding="12dp"
+                android:inputType="textMultiLine"
+                android:maxLines="6" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cancel"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#999999"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btnConfirmar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/Confirm"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#115C94" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

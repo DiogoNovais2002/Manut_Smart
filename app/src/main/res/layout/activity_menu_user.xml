@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MenuUserActivity">
+    tools:context=".user.MenuUserActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:contentDescription="@string/logout"
+            android:contentDescription="@string/Logout"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/logout" />
@@ -29,7 +29,7 @@
             android:layout_width="350dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:contentDescription="@string/logo"
+            android:contentDescription="@string/Logo"
             android:src="@drawable/logo" />
 
         <TextView
@@ -52,7 +52,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Report_Fault"
+            android:text="@string/ReportFault"
             android:layout_marginTop="40dp"
             style="@style/BlueButton"
             android:height="50dp" />
@@ -60,14 +60,14 @@
             style="@style/WhiteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Ongoing_reports"
+            android:text="@string/OngoingReports"
             android:layout_marginTop="10dp"
             android:height="50dp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Fault_History"
+            android:text="@string/FaultHistory"
             android:layout_marginTop="10dp"
             style="@style/WhiteButton"
             android:height="50dp" />
