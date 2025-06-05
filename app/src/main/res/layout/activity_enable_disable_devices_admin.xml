@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".admin.List_Device_Admin">
+    android:background="#FFFFFF"
+    tools:context=".admin.Devices.EnableDisableDevices.EnableDisableDevicesAdminActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
         android:padding="24dp">
 
         <ImageView
+            android:id="@+id/btnBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/return_icon"
@@ -34,12 +36,30 @@
                 android:contentDescription="@string/Logo" />
         </LinearLayout>
 
+
         <TextView
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lista de Dispositivos:"
-            android:textSize="20sp"
+            android:text="@string/SelectDepartment"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/spinnerDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_background"
+            android:padding="5dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/DeviceList"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <ListView
@@ -52,6 +72,18 @@
             android:scrollbars="vertical"
             android:background="@drawable/rounded_border"
             android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nenhum dispositivo encontrado."
+            android:textAlignment="center"
+            android:textColor="#888888"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp" />
+
 
     </LinearLayout>
 </ScrollView>

@@ -1,6 +1,5 @@
 package com.ipvc.manut_smart.admin.Departments.EnableDesableDepartmet
 
-import android.content.Context
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.ListView
@@ -16,7 +15,6 @@ import com.ipvc.manut_smart.admin.Departments.DepartementData.Department
 
 class EnableDisableDepartmentsAdminActivity : AppCompatActivity() {
 
-    private lateinit var context: Context
     private lateinit var db: FirebaseFirestore
     private lateinit var listView: ListView
     private val departmentList = mutableListOf<Department>()
@@ -66,7 +64,7 @@ class EnableDisableDepartmentsAdminActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Error fetching departments", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.ErrorLoadingData), Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -86,7 +84,7 @@ class EnableDisableDepartmentsAdminActivity : AppCompatActivity() {
 
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Error toggling department", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.ErrorUpdateData), Toast.LENGTH_SHORT).show()
             }
     }
 }

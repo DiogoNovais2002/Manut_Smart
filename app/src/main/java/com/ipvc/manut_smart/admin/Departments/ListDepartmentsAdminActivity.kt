@@ -1,5 +1,6 @@
 package com.ipvc.manut_smart.admin.Departments
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ImageView
@@ -9,7 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.admin.Departments.DepartementData.Department
 
@@ -28,6 +31,16 @@ class ListDepartmentsAdminActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val user = FirebaseAuth.getInstance().currentUser
+
+        if (user == null) {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
 
         val btnBack = findViewById<ImageView>(R.id.btnBack)
@@ -59,7 +72,7 @@ class ListDepartmentsAdminActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Error fetching departments: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "${getString(R.string.ErrorLoadingData)}: ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
 }

@@ -71,8 +71,12 @@
     <string name="AddDevice">Adicionar Dispositivo</string>
     <string name="TecList">Lista de Técnicos</string>
     <string name="DepartmentManager">Gestão de Departamentos</string>
+    <string name="Department">Departamento</string>
+    <string name="SelectDepartment">Selecione Departamento</string>
     <string name="DevicesManager">Gestão de Dispositivos</string>
     <string name="TechnicalManager">Gestão de Técnicos</string>
+    <string name="Model">Modelo</string>
+    <string name="Branch">Marca</string>
 
     #States
     <string name="Active">Ativar</string>
@@ -81,6 +85,23 @@
     <string name="Disabled">Desativado</string>
     <string name="Finish">Finalizar</string>
 
+    #Diveces Types
+    <string name="Fixed">Computador Fixo</string>
+    <string name="projector">Projetor</string>
+    <string name="InteractiveWhiteboard">Quadro Interativo</string>
 
+    #Error Messages
+    <string name="ErrorLoadingData">Erro a carregar os dados</string>
+    <string name="ErrorUpdateData">Erro a atualizar os dados</string>
+    <string name="ErrorRegistering">Erro no Registo</string>
+    
+    #Warning Messages
+    <string name="FieldAllFields">Preencha todos os campos</string>
+    
+    #Success Messages
+    <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>
+    <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>"
+    
+    
     <style name="OngoingRepairs">Reparaçoes em curso</style>
 </resources>

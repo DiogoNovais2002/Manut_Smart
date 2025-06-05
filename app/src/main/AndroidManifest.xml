@@ -19,7 +19,7 @@
             android:name=".admin.Departments.ListDepartmentsAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.SubMenuDeviceAdminActivity"
+            android:name=".admin.Devices.SubMenuDeviceAdminActivity"
             android:exported="false" />
         <activity
             android:name=".admin.Departments.SubMenuDepartmentAdminActivity"
@@ -37,14 +37,12 @@
             android:name=".admin.Departments.CreateDepartmentAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.Enable_Devices"
+            android:name=".admin.Devices.EnableDisableDevices.EnableDisableDevicesAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.List_Device_Admin"
-            android:exported="false" />
-        <activity
-            android:name=".admin.Register_device"
-            android:exported="false" />
+            android:name=".admin.Devices.RegisterDeviceAdminActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".user.Repair_history"
             android:exported="false" />

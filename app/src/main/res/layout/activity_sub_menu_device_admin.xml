@@ -46,6 +46,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:id="@+id/btnAddDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/AddDevice"
@@ -54,14 +55,7 @@
                 android:height="50dp" />
 
             <Button
-                style="@style/WhiteButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/DeviceList"
-                android:layout_marginTop="10dp"
-                android:height="50dp" />
-
-            <Button
+                android:id="@+id/btnEnableDisableDevices"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/EnableDisableDevice"

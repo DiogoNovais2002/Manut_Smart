@@ -6,19 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".admin.Register_device">
+    android:background="#FFFFFF"
+    tools:context=".admin.Devices.RegisterDeviceAdminActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/return_icon"
-            android:contentDescription="@string/Back" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,19 +24,21 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
                 android:src="@drawable/logo"
                 android:contentDescription="@string/Logo" />
 
 
         </LinearLayout>
+
         <TextView
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/AddDevice"
-            android:textSize="20sp"
+            android:textSize="30dp"
             android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,24 +46,35 @@
             android:layout_marginTop="24dp">
 
             <Spinner
-                android:id="@+id/spinnerDepartamento"
+                android:id="@+id/spinnerDepartment"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/spinner_background"
+                android:padding="5dp"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinnerTypeDevice"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/spinner_background"
+                android:padding="5dp"
+                android:spinnerMode="dropdown" />
+
+
+            <EditText
+                android:id="@+id/editName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/Branch"
                 android:background="@drawable/rounded_border"
                 android:padding="12dp"
                 android:layout_marginBottom="12dp" />
 
             <EditText
-                android:id="@+id/editNome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Name"
-                android:background="@drawable/rounded_border"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp" />
-
-            <EditText
-                android:id="@+id/editNumeroSerie"
+                android:id="@+id/editSN"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Number"
@@ -75,24 +83,14 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
-                android:id="@+id/editLocalizacao"
+                android:id="@+id/editDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Loc"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/rounded_border"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp" />
-
-            <EditText
-                android:id="@+id/editDescricao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Description"
-                android:background="@drawable/rounded_border"
-                android:padding="12dp"
-                android:minLines="3"
                 android:gravity="top"
-                android:layout_marginBottom="24dp" />
+                android:hint="@string/Model"
+                android:padding="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,6 +100,7 @@
                 android:layout_marginTop="16dp">
 
                 <Button
+                    android:id="@+id/btnCancel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -111,6 +110,7 @@
                     android:textColor="#FFFFFF" />
 
                 <Button
+                    android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

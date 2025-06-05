@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.admin.Departments.SubMenuDepartmentAdminActivity
+import com.ipvc.manut_smart.admin.Devices.SubMenuDeviceAdminActivity
 
 class MenuAdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

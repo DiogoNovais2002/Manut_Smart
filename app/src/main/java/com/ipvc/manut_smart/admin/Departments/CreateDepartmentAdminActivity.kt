@@ -51,7 +51,7 @@ class CreateDepartmentAdminActivity : AppCompatActivity() {
             val localizacao = locationEditText.text.toString().trim()
 
             if (nome.isEmpty() || localizacao.isEmpty()) {
-                Toast.makeText(this, "Field All Fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.FieldAllFields), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -65,7 +65,7 @@ class CreateDepartmentAdminActivity : AppCompatActivity() {
             db.collection("departments")
                 .add(department)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Created Department Successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.CreatedDepartmentSuccessfully), Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 .addOnFailureListener { e ->
