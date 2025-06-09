@@ -14,12 +14,14 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+
         <ImageView
             android:id="@+id/returnIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/return_icon"
             android:contentDescription="@string/Back" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,7 +74,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-
         <LinearLayout
             android:id="@+id/filterOptions"
             android:layout_width="match_parent"
@@ -100,83 +101,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/listContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/ticket_background"
-            android:padding="12dp">
+            android:layout_marginTop="16dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Iphone 12"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Alta"
-                    android:textStyle="italic"
-                    android:layout_marginEnd="12dp" />
-
-                <FrameLayout
-                    android:id="@+id/btnExpand"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/card"
-                        android:contentDescription="Botão" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="+"
-                        android:textColor="#115C94"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
-                </FrameLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/detailsLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_marginTop="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trocar bateria" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trocar ecrã" />
-
-                <Button
-                    android:id="@+id/btnReparar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Repair1"
-                    android:layout_marginTop="12dp"
-                    android:backgroundTint="#115C94"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

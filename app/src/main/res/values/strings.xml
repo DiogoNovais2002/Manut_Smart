@@ -57,7 +57,9 @@
     <string name="FinishRepair">Finalizar Reparação</string>
     <string name="RepairHistory">Histórico de Reparações</string>
     <string name="Repair1">Reparar</string>
-    <string name="RepairDescription">Descrição da ReparaçãO</string>
+    <string name="RepairDescription">Descrição da Reparação</string>
+    <string name="state">Estado</string>
+    <string name="title">Título</string>
 
     <!-- Device Types -->
     <string name="Computer">Computador</string>
@@ -124,5 +126,7 @@
     <!-- Success Messages -->
     <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>
     <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>
+
+
 
 </resources>
