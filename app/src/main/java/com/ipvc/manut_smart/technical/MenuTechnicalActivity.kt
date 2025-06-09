@@ -2,6 +2,7 @@ package com.ipvc.manut_smart.technical
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -43,5 +44,27 @@ class MenuTechnicalActivity : AppCompatActivity() {
 
             finish()
         }
+
+        val startRepairButton = findViewById<Button>(R.id.startRepair)
+        val ongoingRepairButton = findViewById<Button>(R.id.ongoingRepair)
+        val finishRepairButton = findViewById<Button>(R.id.finishRepair)
+        val repairHistoryButton = findViewById<Button>(R.id.repairHistory)
+
+        startRepairButton.setOnClickListener {
+            startActivity(Intent(this, Pending_repair::class.java))
+        }
+
+        ongoingRepairButton.setOnClickListener {
+            startActivity(Intent(this, Pending_repair::class.java))
+        }
+
+        finishRepairButton.setOnClickListener {
+            startActivity(Intent(this, Finish_repair_technical::class.java))
+        }
+
+        repairHistoryButton.setOnClickListener {
+            startActivity(Intent(this, RepairHistory_technical::class.java))
+        }
+
     }
 }

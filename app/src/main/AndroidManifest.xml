@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Manut_Smart"
         tools:targetApi="31">
         <activity
+            android:name=".technical.RepairHistory_technical"
+            android:exported="false" />
+        <activity
             android:name=".admin.Departments.EnableDesableDepartmet.EnableDisableDepartmentsAdminActivity"
             android:exported="false" />
         <activity
@@ -39,7 +42,7 @@
         <activity
             android:name=".admin.Devices.RegisterDeviceAdminActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".user.Repair_history"
             android:exported="false" />
