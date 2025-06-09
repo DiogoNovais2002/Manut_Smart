@@ -55,7 +55,7 @@ class MenuTechnicalActivity : AppCompatActivity() {
         }
 
         ongoingRepairButton.setOnClickListener {
-            startActivity(Intent(this, Pending_repair::class.java))
+            startActivity(Intent(this, Ongoing_Repair_tec::class.java))
         }
 
         finishRepairButton.setOnClickListener {

@@ -126,7 +126,7 @@
     <!-- Success Messages -->
     <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>
     <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>
-
+    <string name="Ongoing_Repair">Reparações em curso</string>
 
 
 </resources>
