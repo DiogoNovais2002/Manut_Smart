@@ -3,6 +3,7 @@ package com.ipvc.manut_smart.technical
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,11 @@ class Pending_repair : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnReparar).setOnClickListener {
             Toast.makeText(this, "Reparação iniciada", Toast.LENGTH_SHORT).show()
+        }
+
+        val backButton = findViewById<ImageView>(R.id.returnIcon)
+        backButton.setOnClickListener {
+            finish()
         }
     }
 }

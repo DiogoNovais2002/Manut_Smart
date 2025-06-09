@@ -1,6 +1,7 @@
 package com.ipvc.manut_smart.technical
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +17,10 @@ class Finish_Repair_description : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val backButton = findViewById<ImageView>(R.id.returnIcon)
+        backButton.setOnClickListener {
+            finish() // Volta à activity anterior
         }
     }
 }

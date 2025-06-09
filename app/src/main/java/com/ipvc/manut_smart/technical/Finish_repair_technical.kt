@@ -1,6 +1,12 @@
 package com.ipvc.manut_smart.technical
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +22,23 @@ class Finish_repair_technical : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val btnExpand = findViewById<FrameLayout>(R.id.btnExpand)
+        val detailsLayout = findViewById<LinearLayout>(R.id.detailsLayout)
+        btnExpand.setOnClickListener {
+            if (detailsLayout.visibility == View.GONE) {
+                detailsLayout.visibility = View.VISIBLE
+            } else {
+                detailsLayout.visibility = View.GONE
+            }
+        }
+        val finishRepairTecButton = findViewById<Button>(R.id.btnFinish)
+        finishRepairTecButton.setOnClickListener {
+            startActivity(Intent(this, Finish_Repair_description::class.java))
+        }
+        val backButton = findViewById<ImageView>(R.id.returnIcon)
+        backButton.setOnClickListener {
+            finish()
         }
     }
 }
