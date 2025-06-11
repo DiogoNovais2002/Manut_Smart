@@ -128,6 +128,18 @@
     <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>
     <string name="Ongoing_Repair">Reparações em curso</string>
 
+    <!-- Pending Repair -->
+    <string name="Auth_tec">Técnico não autenticado!</string>
+    <string name="high">Alta</string>
+    <string name="low">Baixa</string>
+    <string name="Urgency_Filter">Urgência</string>
+    <string name="Date_Filter">Data</string>
+    <string name="Filter_Filter">Filtrar</string>
+    <string name="State_changed">Estado alterado e intervenção criada!</string>
+    <string name="Error_Intervention">Erro ao criar intervenção!</string>
+    <string name="State_change_error">Erro ao atualizar estado</string>
+    <string name="Get_repair_error">Erro ao carregar reparações</string>
+
     <!--Filter-->
     <string-array name="filter_options">
         <item>Filtrar</item>

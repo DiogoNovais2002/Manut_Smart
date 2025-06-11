@@ -34,7 +34,9 @@ class Pending_repair : AppCompatActivity() {
         val backButton = findViewById<ImageView>(R.id.returnIcon)
 
         val spinnerFilter = findViewById<Spinner>(R.id.spinnerFilter)
-        val options = listOf("Filtrar", "Urgência", "Data")
+        val options = listOf(
+            getString(R.string.Filter_Filter), getString(R.string.Urgency_Filter),
+            getString(R.string.Date_Filter))
         val adapter = object : ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item,
@@ -104,7 +106,7 @@ class Pending_repair : AppCompatActivity() {
 
                     itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
                     itemView.findViewById<TextView>(R.id.tvUrgency).text =
-                        if (issue.urgency) "Alta" else "Baixa"
+                        if (issue.urgency) getString(R.string.high) else getString(R.string.low)
 
 
             val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
@@ -126,7 +128,7 @@ class Pending_repair : AppCompatActivity() {
                         val technicalUid = currentUser?.uid
 
                         if (technicalUid == null) {
-                            Toast.makeText(this, "Técnico não autenticado!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.Auth_tec), Toast.LENGTH_SHORT).show()
                             return@setOnClickListener
                         }
 
@@ -146,7 +148,7 @@ class Pending_repair : AppCompatActivity() {
                                     .addOnSuccessListener {
                                         Toast.makeText(
                                             this,
-                                            "Estado alterado e intervenção criada!",
+                                            getString(R.string.State_changed),
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         loadPendingIssues()
@@ -154,13 +156,14 @@ class Pending_repair : AppCompatActivity() {
                                     .addOnFailureListener {
                                         Toast.makeText(
                                             this,
-                                            "Erro ao criar intervenção!",
+                                            getString(R.string.Error_Intervention),
                                             Toast.LENGTH_SHORT
                                         ).show()
                                     }
                             }
                             .addOnFailureListener {
-                                Toast.makeText(this, "Erro ao atualizar estado", Toast.LENGTH_SHORT)
+                                Toast.makeText(this,
+                                    getString(R.string.State_change_error), Toast.LENGTH_SHORT)
                                     .show()
                             }
                     }
@@ -169,7 +172,7 @@ class Pending_repair : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Erro ao carregar reparações", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.Get_repair_error), Toast.LENGTH_SHORT).show()
             }
     }
 }
