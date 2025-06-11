@@ -128,5 +128,11 @@
     <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>
     <string name="Ongoing_Repair">Reparações em curso</string>
 
+    <!--Filter-->
+    <string-array name="filter_options">
+        <item>Filtrar</item>
+        <item>Urgência</item>
+        <item>Data</item>
+    </string-array>
 
 </resources>

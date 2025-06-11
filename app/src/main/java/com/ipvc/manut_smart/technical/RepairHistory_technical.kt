@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.technical.IssueData.Issue
+import com.ipvc.manut_smart.technical.IssueData.urgencyLevel
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -52,7 +53,11 @@ class RepairHistory_technical : AppCompatActivity() {
 
                     itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
                     itemView.findViewById<TextView>(R.id.tvUrgency).text =
-                        if (issue.urgency) "Alta" else "Normal"
+                        when (issue.urgencyLevel()) {
+                            2 -> "Alta"
+                            1 -> "Média"
+                            else -> "Baixa"
+                        }
                     itemView.findViewById<TextView>(R.id.tvDescription).text = issue.description
 
                     val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""

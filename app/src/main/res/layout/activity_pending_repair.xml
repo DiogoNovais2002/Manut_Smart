@@ -49,6 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="0dp"
             android:layout_marginTop="8dp">
 
             <EditText
@@ -63,42 +65,14 @@
                 android:textSize="16sp"
                 android:inputType="text" />
 
-            <Button
-                android:id="@+id/btnFiltrar"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <Spinner
+                android:id="@+id/spinnerFilter"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
                 android:background="@drawable/rounded_right"
-                android:minWidth="80dp"
-                android:text="@string/Filter"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:spinnerMode="dropdown"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/filterOptions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginTop="8dp">
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/rbUrgencia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Urgency" />
-
-                <RadioButton
-                    android:id="@+id/rbData"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Date" />
-            </RadioGroup>
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/listContainer"

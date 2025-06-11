@@ -37,17 +37,34 @@ class Finish_Repair_description : AppCompatActivity() {
         ConfirmButton.setOnClickListener {
             val novaDescricao = editDescricao.text.toString().trim()
             if (issueId.isNotEmpty() && novaDescricao.isNotEmpty()) {
+
                 db.collection("issue")
                     .document(issueId)
-                    .update(
-                        mapOf(
-                            "description" to novaDescricao,
-                            "state" to "finished"
-                        )
-                    )
+                    .update("state", "finished")
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Reparação finalizada!", Toast.LENGTH_SHORT).show()
-                        finish()
+
+                        db.collection("intervention")
+                            .whereEqualTo("issue_id", issueId)
+                            .get()
+                            .addOnSuccessListener { interventions ->
+                                if (interventions.isEmpty) {
+                                    Toast.makeText(this, "Não foi encontrada intervenção!", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    for (intervention in interventions) {
+                                        intervention.reference.update(
+                                            mapOf(
+                                                "end_date" to com.google.firebase.Timestamp.now(),
+                                                "description" to novaDescricao
+                                            )
+                                        )
+                                    }
+                                    Toast.makeText(this, "Reparação finalizada!", Toast.LENGTH_SHORT).show()
+                                    finish()
+                                }
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(this, "Erro ao atualizar intervenção.", Toast.LENGTH_SHORT).show()
+                            }
                     }
                     .addOnFailureListener {
                         Toast.makeText(this, "Erro ao finalizar reparação.", Toast.LENGTH_SHORT).show()
