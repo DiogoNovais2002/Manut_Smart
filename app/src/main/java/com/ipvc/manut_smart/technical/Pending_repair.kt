@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.technical.IssueData.Issue
-import com.ipvc.manut_smart.technical.IssueData.urgencyLevel
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -85,20 +84,17 @@ class Pending_repair : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 listContainer.removeAllViews()
-
                 val issues = documents.map { doc ->
-                    val issue = doc.toObject(Issue::class.java)
-                    issue.id = doc.id
-                    issue
+                    doc.toObject(Issue::class.java)
                 }.toMutableList()
-
-
                 when (selectedFilter) {
                     1 -> {
-                        issues.sortByDescending { it.urgencyLevel() }
+                        issues.sortByDescending { it.urgency }
                     }
-                    2 -> { // Data
+                    2 -> {
                         issues.sortBy { it.date_registration?.toDate() }
+                    }
+                    else -> {
                     }
                 }
 
@@ -108,13 +104,10 @@ class Pending_repair : AppCompatActivity() {
 
                     itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
                     itemView.findViewById<TextView>(R.id.tvUrgency).text =
-                        when (issue.urgencyLevel()) {
-                            2 -> "Alta"
-                            1 -> "Média"
-                            else -> "Baixa"
-                        }
+                        if (issue.urgency) "Alta" else "Baixa"
 
-                    val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
+
+            val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
                     val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
                     detailsLayout.visibility = View.GONE
 

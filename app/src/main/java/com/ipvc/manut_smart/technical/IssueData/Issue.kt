@@ -8,16 +8,9 @@ data class Issue(
     val state: String = "",
     val title: String = "",
     val uid: String = "",
-    val urgency: String = "",
+    val urgency: Boolean = false,
     var id: String = ""
 )
 
 
-fun Issue.urgencyLevel(): Int {
-    return when (this.urgency?.lowercase()) {
-        "alta" -> 2
-        "media" -> 1
-        "baixa" -> 0
-        else -> 0
-    }
-}
+
