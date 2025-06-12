@@ -48,7 +48,8 @@ class Finish_Repair_description : AppCompatActivity() {
                             .get()
                             .addOnSuccessListener { interventions ->
                                 if (interventions.isEmpty) {
-                                    Toast.makeText(this, "Não foi encontrada intervenção!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this,
+                                        getString(R.string.Intervencion_not_find), Toast.LENGTH_SHORT).show()
                                 } else {
                                     for (intervention in interventions) {
                                         intervention.reference.update(
@@ -58,19 +59,22 @@ class Finish_Repair_description : AppCompatActivity() {
                                             )
                                         )
                                     }
-                                    Toast.makeText(this, "Reparação finalizada!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this,
+                                        getString(R.string.Repair_done), Toast.LENGTH_SHORT).show()
                                     finish()
                                 }
                             }
                             .addOnFailureListener {
-                                Toast.makeText(this, "Erro ao atualizar intervenção.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this,
+                                    getString(R.string.update_intervention_error), Toast.LENGTH_SHORT).show()
                             }
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this, "Erro ao finalizar reparação.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,
+                            getString(R.string.Finish_Repair_Error), Toast.LENGTH_SHORT).show()
                     }
             } else {
-                Toast.makeText(this, "Preenche a descrição!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.Write_description), Toast.LENGTH_SHORT).show()
             }
         }
     }

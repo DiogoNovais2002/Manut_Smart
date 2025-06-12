@@ -69,9 +69,9 @@ class RepairHistory_technical : AppCompatActivity() {
                     btnExpand.setOnClickListener {
                         if (detailsLayout.visibility == View.GONE) {
                             val estadoVisivel = when (issue.state) {
-                                "pending" -> "Pendente"
-                                "in progress" -> "Em progresso"
-                                "finished" -> "Finalizado"
+                                "pending" -> getString(R.string.Pending)
+                                "in progress" -> getString(R.string.In_progress)
+                                "finished" -> getString(R.string.Finish_state)
                                 else -> issue.state
                             }
                             tvState.text = "Estado: $estadoVisivel"
@@ -86,7 +86,7 @@ class RepairHistory_technical : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Erro ao carregar histórico", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.Load_history), Toast.LENGTH_SHORT).show()
             }
     }
 }

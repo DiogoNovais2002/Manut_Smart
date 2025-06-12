@@ -80,7 +80,7 @@ class Finish_repair_technical : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Erro ao carregar reparações em progresso", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.Load_repair_Error), Toast.LENGTH_SHORT).show()
             }
     }
 }

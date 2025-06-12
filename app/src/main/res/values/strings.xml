@@ -136,9 +136,25 @@
     <string name="Date_Filter">Data</string>
     <string name="Filter_Filter">Filtrar</string>
     <string name="State_changed">Estado alterado e intervenção criada!</string>
+
+    <!-- Finish_Repair_description -->
     <string name="Error_Intervention">Erro ao criar intervenção!</string>
     <string name="State_change_error">Erro ao atualizar estado</string>
     <string name="Get_repair_error">Erro ao carregar reparações</string>
+    <string name="Intervencion_not_find">Não foi encontrada intervenção!</string>
+    <string name="Repair_done">Reparação finalizada!</string>
+    <string name="update_intervention_error">Erro ao atualizar intervenção.</string>
+    <string name="Finish_Repair_Error">Erro ao finalizar reparação.</string>
+    <string name="Write_description">Preenche a descrição!</string>
+
+    <!-- Finish_Repair -->
+    <string name="Load_repair_Error">Erro ao carregar reparações em progresso</string>
+    <string name="Load_history">Erro ao carregar histórico</string>
+    <!-- Estado -->
+    <string name="Pending">Pendente</string>
+    <string name="In_progress">Em progresso</string>
+    <string name="Finish_state">Finalizado</string>
+
 
     <!--Filter-->
     <string-array name="filter_options">
