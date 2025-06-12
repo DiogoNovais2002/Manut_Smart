@@ -1,4 +1,4 @@
-package com.ipvc.manut_smart.user
+package com.ipvc.manut_smart.user.NewIssue
 
 import android.app.Activity
 import android.content.Intent

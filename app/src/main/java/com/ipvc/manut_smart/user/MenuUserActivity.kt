@@ -11,6 +11,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
+import com.ipvc.manut_smart.user.HistoryList.IssuesHistoryUserActivity
+import com.ipvc.manut_smart.user.ListPendingIssues.ListIssuesUserActivity
+import com.ipvc.manut_smart.user.NewIssue.NewIssueUserActivity
 
 class MenuUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +49,18 @@ class MenuUserActivity : AppCompatActivity() {
         val btnNewIssue = findViewById<Button>(R.id.btnNewIssue)
         btnNewIssue.setOnClickListener {
             val intent = Intent(this, NewIssueUserActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnOngoingIssues = findViewById<Button>(R.id.btnOngoingIssues)
+        btnOngoingIssues.setOnClickListener {
+            val intent = Intent(this, ListIssuesUserActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnFaultHistory = findViewById<Button>(R.id.btnFaultHistory)
+        btnFaultHistory.setOnClickListener {
+            val intent = Intent(this, IssuesHistoryUserActivity::class.java)
             startActivity(intent)
         }
     }

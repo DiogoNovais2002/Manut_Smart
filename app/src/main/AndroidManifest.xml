@@ -41,10 +41,10 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
         <activity
-            android:name=".user.Repair_history"
+            android:name=".user.HistoryList.IssuesHistoryUserActivity"
             android:exported="false" />
         <activity
-            android:name=".user.NewIssueUserActivity"
+            android:name=".user.NewIssue.NewIssueUserActivity"
             android:exported="false" />
         <activity
             android:name=".technical.Finish_Repair_description"
@@ -56,7 +56,7 @@
             android:name=".technical.Pending_repair"
             android:exported="false" />
         <activity
-            android:name=".user.List_repairs_cliente"
+            android:name=".user.ListPendingIssues.ListIssuesUserActivity"
             android:exported="false" />
         <activity
             android:name=".technical.MenuTechnicalActivity"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/white"
-    tools:context=".user.NewIssueUserActivity">
+    tools:context=".user.NewIssue.NewIssueUserActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

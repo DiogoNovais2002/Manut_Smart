@@ -116,6 +116,9 @@
     <string name="Finish">Finalizar</string>
     <string name="Yes">Sim</string>
     <string name="No">Não</string>
+    <string name="Pending">Pendente</string>
+    <string name="InProgress">Em Reparação</string>
+    <string name="Finished">Finalizado</string>
 
 
     <!-- Error Messages -->
