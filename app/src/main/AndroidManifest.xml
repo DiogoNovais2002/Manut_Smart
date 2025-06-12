@@ -44,6 +44,9 @@
             android:name=".user.Repair_history"
             android:exported="false" />
         <activity
+            android:name=".user.NewIssueUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".technical.Finish_Repair_description"
             android:exported="false" />
         <activity

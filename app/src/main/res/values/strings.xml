@@ -19,7 +19,7 @@
     <string name="TextRegister">Ja tem conta? Inicie sessao</string>
     <string name="Hi">Olá</string>
     <string name="Logout">Logout</string>
-    <string name="Mesage">Mensagem ...</string>
+    <string name="Mesage">Mensagem...</string>
     <string name="UserDisabled">Utilizador desativado. Entre em contacto com o administrador.</string>
     <string name="UserNotFound">Erro: Utilizador não encontrado</string>
 
@@ -38,18 +38,20 @@
 
     <!-- Fault Reporting -->
     <string name="ReportFault">Reportar Avaria</string>
+    <string name="Fault">Problema:</string>
     <string name="OngoingReports">Avarias em curso</string>
     <string name="FaultHistory">Histórico de Avarias</string>
     <string name="RepairList">Lista de Avarias</string>
     <string name="PendingRepairs">Reparações Pendentes</string>
     <string name="ChooseDevice">Escolha o tipo de dispositivo com problema:</string>
-    <string name="UrgencyOfService">Urgência do serviço:</string>
+    <string name="UrgencyOfService">Urgência no serviço:</string>
     <string name="DevicesList">Lista de Dispositivos:</string>
     <string name="Photo">Fotografias</string>
     <string name="ProblemDescription">Descricao do problema:</string>
     <string name="LoadPhoto">Carregar fotografia</string>
     <string name="Cancel">Cancelar</string>
     <string name="Confirm">Confirmar</string>
+    <string name="IssueRegistered">Avaria registada com sucesso</string>"
 
     <!-- Repair Flow -->
     <string name="StartRepair">Iniciar Reparação</string>
@@ -99,7 +101,7 @@
     <string name="DepartmentList">Lista de Departamentos</string>
     <string name="EnableDisableDepartment">Ativar / Desativar Departamento</string>
     <string name="DepartmentManager">Gestão de Departamentos</string>
-    <string name="Department">Departamento</string>
+    <string name="SingleDepartement">Departamento</string>
     <string name="SelectDepartment">Selecione Departamento</string>
 
     <!-- Location & Description -->
@@ -112,6 +114,9 @@
     <string name="Enabled">Ativado</string>
     <string name="Disabled">Desativado</string>
     <string name="Finish">Finalizar</string>
+    <string name="Yes">Sim</string>
+    <string name="No">Não</string>
+
 
     <!-- Error Messages -->
     <string name="ErrorLoadingData">Erro a carregar os dados</string>
