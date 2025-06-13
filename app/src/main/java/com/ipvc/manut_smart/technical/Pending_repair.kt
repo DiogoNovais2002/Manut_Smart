@@ -98,12 +98,10 @@ class Pending_repair : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 listContainer.removeAllViews()
-                // O "map" agora já não é necessário, vamos fazer direto no loop:
                 val issuesList = documents.map { doc ->
                     Pair(doc, doc.toObject(Issue::class.java))
                 }.toMutableList()
 
-                // Ordenação conforme o filtro:
                 when (selectedFilter) {
                     1 -> {
                         issuesList.sortByDescending { it.second.urgency }
@@ -111,7 +109,7 @@ class Pending_repair : AppCompatActivity() {
                     2 -> {
                         issuesList.sortBy { it.second.date_registration?.toDate() }
                     }
-                    else -> { /* Nenhuma ordenação extra */ }
+                    else -> {  }
                 }
 
                 for ((doc, issue) in issuesList) {

@@ -8,7 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.play.core.integrity.bu
 import com.google.firebase.auth.FirebaseAuth
 import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
@@ -42,6 +41,12 @@ class SubMenuTechnicianAdminActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterTechnicianAdminActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnListTec = findViewById<Button>(R.id.btnListTec)
+        btnListTec.setOnClickListener{
+            val intent = Intent(this, List_Tec_Admin::class.java)
             startActivity(intent)
         }
     }
