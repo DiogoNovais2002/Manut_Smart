@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/ticket_background"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/deviceName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nome do Dispositivo"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/statusDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/status"
+            android:backgroundTint="#FFA500" />
+
+        <FrameLayout
+            android:id="@+id/btnExpand"
+            android:layout_width="32dp"
+            android:layout_height="32dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/card"
+                android:contentDescription="Expandir" />
+
+            <TextView
+                android:id="@+id/expandText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="+"
+                android:textColor="#115C94"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/faultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título da Falha" />
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição da Falha" />
+
+        <TextView
+            android:id="@+id/stateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado: pending ou in_progress"
+            android:layout_marginTop="8dp"
+            android:textColor="#444" />
+
+        <TextView
+            android:id="@+id/titlePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imagem:"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/Photo" />
+
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#444"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/finishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#444"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/InterventionDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#444"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+</LinearLayout>

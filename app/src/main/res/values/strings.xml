@@ -1,12 +1,12 @@
 <resources>
 
     <!-- App Info -->
-    <string name="app_name">Manut_Smart</string>
+    <string name="app_name">Manut Smart</string>
     <string name="TitleActivityRegister">RegisterActivity</string>
     <string name="Logo">Logo</string>
 
     <!-- Auth & User Interaction -->
-    <string name="Welcome">Bem-vindo</string>
+    <string name="Welcome">Bem-Vindo</string>
     <string name="Email">Email</string>
     <string name="Password">Palavra-Passe</string>
     <string name="Enter">Entrar</string>
@@ -19,7 +19,7 @@
     <string name="TextRegister">Ja tem conta? Inicie sessao</string>
     <string name="Hi">Olá</string>
     <string name="Logout">Logout</string>
-    <string name="Mesage">Mensagem ...</string>
+    <string name="Mesage">Mensagem...</string>
     <string name="UserDisabled">Utilizador desativado. Entre em contacto com o administrador.</string>
     <string name="UserNotFound">Erro: Utilizador não encontrado</string>
 
@@ -38,18 +38,20 @@
 
     <!-- Fault Reporting -->
     <string name="ReportFault">Reportar Avaria</string>
+    <string name="Fault">Problema:</string>
     <string name="OngoingReports">Avarias em curso</string>
     <string name="FaultHistory">Histórico de Avarias</string>
     <string name="RepairList">Lista de Avarias</string>
     <string name="PendingRepairs">Reparações Pendentes</string>
     <string name="ChooseDevice">Escolha o tipo de dispositivo com problema:</string>
-    <string name="UrgencyOfService">Urgência do serviço:</string>
+    <string name="UrgencyOfService">Urgência no serviço:</string>
     <string name="DevicesList">Lista de Dispositivos:</string>
     <string name="Photo">Fotografias</string>
-    <string name="ProblemDescription">Descricao do problema:</string>
+    <string name="ProblemDescription">Descrição do problema:</string>
     <string name="LoadPhoto">Carregar fotografia</string>
     <string name="Cancel">Cancelar</string>
     <string name="Confirm">Confirmar</string>
+    <string name="IssueRegistered">Avaria registada com sucesso</string>"
 
     <!-- Repair Flow -->
     <string name="StartRepair">Iniciar Reparação</string>
@@ -57,7 +59,9 @@
     <string name="FinishRepair">Finalizar Reparação</string>
     <string name="RepairHistory">Histórico de Reparações</string>
     <string name="Repair1">Reparar</string>
-    <string name="RepairDescription">Descrição da ReparaçãO</string>
+    <string name="RepairDescription">Descrição da Reparação</string>
+    <string name="state">Estado</string>
+    <string name="title">Título</string>
 
     <!-- Device Types -->
     <string name="Computer">Computador</string>
@@ -99,7 +103,7 @@
     <string name="DepartmentList">Lista de Departamentos</string>
     <string name="EnableDisableDepartment">Ativar / Desativar Departamento</string>
     <string name="DepartmentManager">Gestão de Departamentos</string>
-    <string name="Department">Departamento</string>
+    <string name="SingleDepartement">Departamento</string>
     <string name="SelectDepartment">Selecione Departamento</string>
 
     <!-- Location & Description -->
@@ -112,6 +116,11 @@
     <string name="Enabled">Ativado</string>
     <string name="Disabled">Desativado</string>
     <string name="Finish">Finalizar</string>
+    <string name="Yes">Sim</string>
+    <string name="No">Não</string>
+    <string name="InProgress">Em Reparação</string>
+    <string name="Finished">Finalizado</string>
+
 
     <!-- Error Messages -->
     <string name="ErrorLoadingData">Erro a carregar os dados</string>
@@ -120,9 +129,69 @@
 
     <!-- Warning Messages -->
     <string name="FieldAllFields">Preencha todos os campos</string>
+    <string name="EmptyPendingIssue">Não Existem Avarias Pendentes</string>
+    <string name="EmptyFinishedIssue">Não Existem Avarias Pendentes</string>
 
     <!-- Success Messages -->
     <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>
     <string name="RegisteredDeviceSuccessfully">Dispositivo Registado com sucesso</string>
+    <string name="Ongoing_Repair">Reparações em curso</string>
+
+    <!-- Pending Repair -->
+    <string name="Auth_tec">Técnico não autenticado!</string>
+    <string name="high">Alta</string>
+    <string name="low">Baixa</string>
+    <string name="Urgency_Filter">Urgência</string>
+    <string name="Date_Filter">Data</string>
+    <string name="Filter_Filter">Filtrar</string>
+    <string name="State_changed">Estado alterado e intervenção criada!</string>
+
+    <!-- Finish_Repair_description -->
+    <string name="Error_Intervention">Erro ao criar intervenção!</string>
+    <string name="State_change_error">Erro ao atualizar estado</string>
+    <string name="Get_repair_error">Erro ao carregar reparações</string>
+    <string name="Intervencion_not_find">Não foi encontrada intervenção!</string>
+    <string name="Repair_done">Reparação finalizada!</string>
+    <string name="update_intervention_error">Erro ao atualizar intervenção.</string>
+    <string name="Finish_Repair_Error">Erro ao finalizar reparação.</string>
+    <string name="Write_description">Preenche a descrição!</string>
+
+    <!-- Finish_Repair -->
+    <string name="Load_repair_Error">Erro ao carregar reparações em progresso</string>
+    <string name="Load_history">Erro ao carregar histórico</string>
+    <!-- Estado -->
+    <string name="Pending">Pendente</string>
+    <string name="In_progress">Em progresso</string>
+    <string name="Finish_state">Finalizado</string>
+    <string name="started">Iniciado em:</string>
+    <string name="finished">Finalizado em:</string>
+
+    <!-- List Technician -->
+    <string name="Email_">Email :</string>
+    <string name="Phone">Telefone:</string>
+    <string name="Role">Função:</string>
+    <string name="Is_Active">Ativo:</string>
+    <string name="Tec_Relatory">Relatorio de tecnicos</string>
+    <string name="Total_Repairs">Total de reparações:</string>
+    <string name="Last_Repair">Última reparação:</string>
+    <string name="Last_Intervention">Última intervenção: -</string>
+    <string name="Avg_Repair">Tempo médio por reparação: -</string>
+    <string name="Last_Intervention_loc">Última intervenção: %1$s (%2$s)</string>
+    <string name="last_intervention_device">Última intervenção: %1$s</string>
+    <string name="last_intervention_error">Última intervenção: Não identificado</string>
+    <string name="Total_repair_num">Total de reparações: %1$d</string>
+    <string name="last_repair_date">Última reparação: %1$s</string>
+    <string name="last_intervation_dev_name">Última intervenção: %1$s (%2$s)</string>
+    <string name="Avg_repair_time">Tempo médio por reparação: %1$s</string>
+    <string name="Enable_Disable_Tec">Ativar e desativar tecnicos</string>
+    <string name="name_tec">Nome do Técnico</string>
+    <string name="enable">Ativar</string>
+
+    <!--Filter-->
+    <string-array name="filter_options">
+        <item>Filtrar</item>
+        <item>Urgência</item>
+        <item>Data</item>
+    </string-array>
 
 </resources>

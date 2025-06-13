@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     tools:context=".technical.Pending_repair">
 
     <LinearLayout
@@ -14,11 +15,14 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+
         <ImageView
+            android:id="@+id/returnIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/return_icon"
             android:contentDescription="@string/Back" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/PendingRepairs"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -46,6 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="0dp"
             android:layout_marginTop="8dp">
 
             <EditText
@@ -60,122 +66,22 @@
                 android:textSize="16sp"
                 android:inputType="text" />
 
-            <Button
-                android:id="@+id/btnFiltrar"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <Spinner
+                android:id="@+id/spinnerFilter"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
                 android:background="@drawable/rounded_right"
-                android:minWidth="80dp"
-                android:text="@string/Filter"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:spinnerMode="dropdown"/>
         </LinearLayout>
 
 
         <LinearLayout
-            android:id="@+id/filterOptions"
+            android:id="@+id/listContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="16dp"/>
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/rbUrgencia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Urgency" />
-
-                <RadioButton
-                    android:id="@+id/rbData"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Date" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/ticket_background"
-            android:padding="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Iphone 12"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Alta"
-                    android:textStyle="italic"
-                    android:layout_marginEnd="12dp" />
-
-                <FrameLayout
-                    android:id="@+id/btnExpand"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/card"
-                        android:contentDescription="Botão" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="+"
-                        android:textColor="#115C94"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
-                </FrameLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/detailsLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_marginTop="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trocar bateria" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trocar ecrã" />
-
-                <Button
-                    android:id="@+id/btnReparar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Repair1"
-                    android:layout_marginTop="12dp"
-                    android:backgroundTint="#115C94"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

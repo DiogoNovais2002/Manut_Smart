@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".user.Report_avaria_decricao_cli">
+    android:background="@color/white"
+    tools:context=".user.NewIssue.NewIssueUserActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,58 +20,87 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:src="@drawable/logo"
-        android:contentDescription="@string/Logo" />
+            android:contentDescription="@string/Logo" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
             android:text="@string/UrgencyOfService"
             android:textSize="24sp"
+            android:layout_marginStart="35dp"
+            android:layout_gravity="start"
             android:textStyle="bold" />
 
         <RadioGroup
+            android:id="@+id/urgency_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <RadioButton android:id="@+id/urgency_low" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Light"/>
-            <RadioButton android:id="@+id/urgency_medium" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Average"/>
-            <RadioButton android:id="@+id/urgency_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/High"/>
+            <RadioButton android:id="@+id/urgency_low" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/No"/>
+            <RadioButton android:id="@+id/urgency_medium" android:layout_marginRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Yes"/>
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/DevicesList"
             android:textSize="24sp"
+            android:layout_marginStart="35dp"
+            android:layout_gravity="start"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerDepartment"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/spinner_background"
+            android:padding="5dp"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/spinnerDevice"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/spinner_background"
+            android:padding="5dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/Fault"
+            android:textSize="24sp"
+            android:layout_marginStart="35dp"
+            android:layout_gravity="start"
             android:textStyle="bold" />
 
         <EditText
-            android:background="@drawable/edit_text_background"
-            android:layout_width="340dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/Departement"
-            android:inputType="text" />
-
-        <EditText
-            android:background="@drawable/edit_text_background"
+            android:id="@+id/editTextFault"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:hint="@string/Devices"
-            android:inputType="text" />
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
+            android:gravity="top" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/ProblemDescription"
-            android:textSize="20sp" />
+            android:textSize="24sp"
+            android:layout_marginStart="35dp"
+            android:layout_gravity="start"
+            android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editTextDescription"
             android:layout_width="340dp"
             android:layout_height="190dp"
             android:layout_marginTop="16dp"
@@ -84,14 +113,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/Photo"
-            android:textSize="20sp" />
+            android:textSize="24sp"
+            android:layout_marginStart="35dp"
+            android:layout_gravity="start"
+            android:textStyle="bold" />
 
         <ImageView
-            android:background="@drawable/edit_text_background"
+            android:id="@+id/imageViewPhoto"
             android:layout_width="340dp"
             android:layout_height="155dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
             android:contentDescription="@string/LoadPhoto"
-            android:scaleType="centerInside" />
+            android:src="@drawable/ic_default_photo" />
 
         <!-- Botões -->
         <LinearLayout
@@ -99,10 +133,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="25dp"
             android:gravity="center">
 
             <Button
-                android:id="@+id/cancel_button"
+                android:id="@+id/btnCancel"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -111,7 +146,7 @@
                 android:backgroundTint="#AAAAAA" />
 
             <Button
-                android:id="@+id/confirm_button"
+                android:id="@+id/btnConfirm"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -119,7 +154,6 @@
                 android:layout_marginStart="8dp"
                 android:backgroundTint="#007BFF" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>
 

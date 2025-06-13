@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/ticket_background"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvTecName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/name_tec"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnEnableDisable"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#115C94"
+        android:text="@string/enable"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+</LinearLayout>

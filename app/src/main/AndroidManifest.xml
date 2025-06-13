@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Manut_Smart"
         tools:targetApi="31">
         <activity
+            android:name=".admin.Technician.Enable_disable_tec"
+            android:exported="false" />
+        <activity
+            android:name=".admin.Technician.Admin_tec_Relatory"
+            android:exported="false" />
+        <activity
+            android:name=".technical.Ongoing_Repair_tec"
+            android:exported="false" />
+        <activity
+            android:name=".technical.RepairHistory_technical"
+            android:exported="false" />
+        <activity
             android:name=".admin.Departments.EnableDesableDepartmet.EnableDisableDepartmentsAdminActivity"
             android:exported="false" />
         <activity
@@ -39,9 +51,12 @@
         <activity
             android:name=".admin.Devices.RegisterDeviceAdminActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".user.Repair_history"
+            android:name=".user.HistoryList.IssuesHistoryUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.NewIssue.NewIssueUserActivity"
             android:exported="false" />
         <activity
             android:name=".technical.Finish_Repair_description"
@@ -53,7 +68,7 @@
             android:name=".technical.Pending_repair"
             android:exported="false" />
         <activity
-            android:name=".user.List_repairs_cliente"
+            android:name=".user.ListPendingIssues.ListIssuesUserActivity"
             android:exported="false" />
         <activity
             android:name=".technical.MenuTechnicalActivity"
