@@ -1,5 +1,6 @@
 package com.ipvc.manut_smart.technical
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.technical.IssueData.Issue
 import java.text.SimpleDateFormat
@@ -32,11 +34,19 @@ class Pending_repair : AppCompatActivity() {
         setContentView(R.layout.activity_pending_repair)
 
         val backButton = findViewById<ImageView>(R.id.returnIcon)
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
 
         val spinnerFilter = findViewById<Spinner>(R.id.spinnerFilter)
         val options = listOf(
             getString(R.string.Filter_Filter), getString(R.string.Urgency_Filter),
-            getString(R.string.Date_Filter))
+            getString(R.string.Date_Filter)
+        )
         val adapter = object : ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item,
@@ -53,6 +63,7 @@ class Pending_repair : AppCompatActivity() {
                 }
                 return v
             }
+
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val v = super.getDropDownView(position, convertView, parent)
                 val textView = v as TextView
@@ -69,6 +80,7 @@ class Pending_repair : AppCompatActivity() {
                 selectedFilter = position
                 loadPendingIssues()
             }
+
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
@@ -86,21 +98,24 @@ class Pending_repair : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 listContainer.removeAllViews()
-                val issues = documents.map { doc ->
-                    doc.toObject(Issue::class.java)
+                // O "map" agora já não é necessário, vamos fazer direto no loop:
+                val issuesList = documents.map { doc ->
+                    Pair(doc, doc.toObject(Issue::class.java))
                 }.toMutableList()
+
+                // Ordenação conforme o filtro:
                 when (selectedFilter) {
                     1 -> {
-                        issues.sortByDescending { it.urgency }
+                        issuesList.sortByDescending { it.second.urgency }
                     }
                     2 -> {
-                        issues.sortBy { it.date_registration?.toDate() }
+                        issuesList.sortBy { it.second.date_registration?.toDate() }
                     }
-                    else -> {
-                    }
+                    else -> { /* Nenhuma ordenação extra */ }
                 }
 
-                for (issue in issues) {
+                for ((doc, issue) in issuesList) {
+                    val issueId = doc.id
                     val itemView = LayoutInflater.from(this)
                         .inflate(R.layout.item_pending_repair, listContainer, false)
 
@@ -108,22 +123,23 @@ class Pending_repair : AppCompatActivity() {
                     itemView.findViewById<TextView>(R.id.tvUrgency).text =
                         if (issue.urgency) getString(R.string.high) else getString(R.string.low)
 
-
-            val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
+                    val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
                     val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
                     detailsLayout.visibility = View.GONE
 
                     itemView.findViewById<TextView>(R.id.tvDescription).text = issue.description
                     val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""
                     itemView.findViewById<TextView>(R.id.tvDate).text = dateText
+                    detailsLayout.visibility = View.GONE
 
+                    val expandText = btnExpand.findViewById<TextView>(R.id.expandText)
                     btnExpand.setOnClickListener {
-                        detailsLayout.visibility =
-                            if (detailsLayout.visibility == View.GONE) View.VISIBLE else View.GONE
+                        val isVisible = detailsLayout.visibility == View.GONE
+                        detailsLayout.visibility = if (isVisible) View.VISIBLE else View.GONE
+                        expandText.text = if (isVisible) "-" else "+"
                     }
 
                     itemView.findViewById<Button>(R.id.btnReparar).setOnClickListener {
-                        val issueId = issue.id
                         val currentUser = FirebaseAuth.getInstance().currentUser
                         val technicalUid = currentUser?.uid
 
@@ -132,10 +148,12 @@ class Pending_repair : AppCompatActivity() {
                             return@setOnClickListener
                         }
 
+                        // 1º Atualiza o estado do issue
                         db.collection("issue")
                             .document(issueId)
-                            .update("state", "in progress")
+                            .update("state", "in_progress")
                             .addOnSuccessListener {
+                                // 2º Cria a intervention
                                 val interventionData = hashMapOf(
                                     "start_date" to Timestamp.now(),
                                     "end_date" to null,
@@ -162,9 +180,11 @@ class Pending_repair : AppCompatActivity() {
                                     }
                             }
                             .addOnFailureListener {
-                                Toast.makeText(this,
-                                    getString(R.string.State_change_error), Toast.LENGTH_SHORT)
-                                    .show()
+                                Toast.makeText(
+                                    this,
+                                    getString(R.string.State_change_error),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                     }
 

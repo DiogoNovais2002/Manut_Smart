@@ -1,5 +1,6 @@
 package com.ipvc.manut_smart.technical
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,7 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
 
 class Finish_Repair_description : AppCompatActivity() {
@@ -23,6 +26,14 @@ class Finish_Repair_description : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user == null) {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
         val backButton = findViewById<ImageView>(R.id.returnIcon)
         backButton.setOnClickListener { finish() }

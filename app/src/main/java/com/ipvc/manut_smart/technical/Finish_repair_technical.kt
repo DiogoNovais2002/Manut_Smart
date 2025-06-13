@@ -14,7 +14,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.technical.IssueData.Issue
 import java.text.SimpleDateFormat
@@ -32,6 +34,13 @@ class Finish_repair_technical : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
         val backButton = findViewById<ImageView>(R.id.returnIcon)
         backButton.setOnClickListener { finish() }
 
@@ -45,38 +54,51 @@ class Finish_repair_technical : AppCompatActivity() {
     private fun loadInProgressIssues() {
         val listContainer = findViewById<LinearLayout>(R.id.listContainer)
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val user = FirebaseAuth.getInstance().currentUser
+        val technicalUid = user?.uid ?: return
 
         db.collection("issue")
-            .whereEqualTo("state", "in progress") // Só os em progresso!
+            .whereEqualTo("state", "in_progress")
             .get()
             .addOnSuccessListener { documents ->
                 listContainer.removeAllViews()
+
                 for (document in documents) {
                     val issue = document.toObject(Issue::class.java)
-                    val itemView = LayoutInflater.from(this)
-                        .inflate(R.layout.item_finish_repair, listContainer, false)
+                    val issueId = document.id
 
-                    itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
-                    itemView.findViewById<TextView>(R.id.tvUrgency).text =
-                        if (issue.urgency) "Alta" else "Baixa"
-                    itemView.findViewById<TextView>(R.id.tvDescription).text = issue.description
+                    db.collection("intervention")
+                        .whereEqualTo("issue_id", issueId)
+                        .whereEqualTo("technical_uid", technicalUid)
+                        .get()
+                        .addOnSuccessListener { interventions ->
+                            if (!interventions.isEmpty) {
+                                val itemView = LayoutInflater.from(this)
+                                    .inflate(R.layout.item_finish_repair, listContainer, false)
 
-                    val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""
-                    itemView.findViewById<TextView>(R.id.tvDate).text = dateText
+                                itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
+                                itemView.findViewById<TextView>(R.id.tvUrgency).text =
+                                    if (issue.urgency) "Alta" else "Baixa"
+                                itemView.findViewById<TextView>(R.id.tvDescription).text = issue.description
 
-                    val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
-                    val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
-                    btnExpand.setOnClickListener {
-                        detailsLayout.visibility = if (detailsLayout.visibility == View.GONE) View.VISIBLE else View.GONE
-                    }
+                                val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""
+                                itemView.findViewById<TextView>(R.id.tvDate).text = dateText
 
-                    itemView.findViewById<Button>(R.id.btnFinish).setOnClickListener {
-                        val intent = Intent(this, Finish_Repair_description::class.java)
-                        intent.putExtra("ISSUE_ID", document.id)
-                        startActivity(intent)
-                    }
+                                val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
+                                val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
+                                btnExpand.setOnClickListener {
+                                    detailsLayout.visibility = if (detailsLayout.visibility == View.GONE) View.VISIBLE else View.GONE
+                                }
 
-                    listContainer.addView(itemView)
+                                itemView.findViewById<Button>(R.id.btnFinish).setOnClickListener {
+                                    val intent = Intent(this, Finish_Repair_description::class.java)
+                                    intent.putExtra("ISSUE_ID", issueId)
+                                    startActivity(intent)
+                                }
+
+                                listContainer.addView(itemView)
+                            }
+                        }
                 }
             }
             .addOnFailureListener {
