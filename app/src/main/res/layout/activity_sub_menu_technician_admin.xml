@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     tools:context=".admin.Technician.RegisterTechnicianAdminActivity">
 
     <LinearLayout
@@ -55,6 +55,7 @@
                 android:height="50dp" />
 
             <Button
+                android:id="@+id/btnListTec"
                 style="@style/WhiteButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +64,7 @@
                 android:height="50dp" />
 
             <Button
+                android:id="@+id/btnEnableDisableTec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/EnableTechnicians"
@@ -71,6 +73,7 @@
                 android:height="50dp" />
 
             <Button
+                android:id="@+id/btnAdmin_tec_Relatory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/TechnicalReports"
