@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -54,13 +55,12 @@ class IssuesHistoryUserActivity : AppCompatActivity() {
             .whereEqualTo("userId", user.uid)
             .get()
             .addOnSuccessListener { snapshot ->
-                if (snapshot.isEmpty) {
-                    val warning = findViewById<TextView>(R.id.warning)
-                    warning.visibility = View.VISIBLE
-                }
+                var count = 0
                 for (doc in snapshot.documents) {
                     val state = doc.getString("state") ?: continue
                     if (state != "finished") continue
+
+                    count++
 
                     val deviceId = doc.getString("deviceid") ?: continue
 
@@ -90,9 +90,9 @@ class IssuesHistoryUserActivity : AppCompatActivity() {
                             nameText.text = fullName
                             faultText.text = fault
                             descText.text = description
+
                             stateText.text = "Estado: " + when (state) {
-                                "pending" -> getString(R.string.Pending)
-                                "in_progress" -> getString(R.string.InProgress)
+                                "finished" -> getString(R.string.Finished)
                                 else -> state
                             }
 
@@ -109,13 +109,40 @@ class IssuesHistoryUserActivity : AppCompatActivity() {
                             if (!photoBase64.isNullOrEmpty()) {
                                 val imageBytes = Base64.decode(photoBase64, Base64.DEFAULT)
                                 val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-                                        photoView.setImageBitmap(bitmap)
+                                photoView.setImageBitmap(bitmap)
                                 photoView.visibility = View.VISIBLE
                                 textPhoto.visibility = View.VISIBLE
                             } else {
                                 photoView.visibility = View.GONE
                                 textPhoto.visibility = View.GONE
                             }
+
+                            firestore.collection("intervention")
+                                .whereEqualTo("issue_id", doc.id)
+                                .limit(1)
+                                .get()
+                                .addOnSuccessListener { interSnapshot ->
+                                    val interDoc = interSnapshot.documents.firstOrNull()
+                                    val startDate = interDoc?.getTimestamp("start_date")
+                                    val startText = issueView.findViewById<TextView>(R.id.startDate)
+                                    val finishDate = interDoc?.getTimestamp("end_date")
+                                    val finishText = issueView.findViewById<TextView>(R.id.finishDate)
+                                    val interventionDescription = interDoc?.getString("description")
+                                    val interventionText = issueView.findViewById<TextView>(R.id.InterventionDescription)
+
+                                    if (startDate != null && finishDate != null ) {
+                                        val formatted = android.text.format.DateFormat.format("dd/MM/yyyy HH:mm", startDate.toDate())
+                                        startText.text = "${getString(R.string.started)} $formatted"
+                                        startText.visibility = View.VISIBLE
+                                        finishText.text = "${getString(R.string.finished)} $formatted"
+                                        finishText.visibility = View.VISIBLE
+                                        interventionDescription?.let {
+                                            interventionText.text = getString(R.string.Description) + it
+                                            interventionText.visibility = View.VISIBLE
+                                        }
+                                    }
+                                }
+
 
                             btnExpand.setOnClickListener {
                                 val isVisible = detailsLayout.visibility == View.VISIBLE
@@ -125,6 +152,10 @@ class IssuesHistoryUserActivity : AppCompatActivity() {
 
                             container.addView(issueView)
                         }
+                }
+                if (count == 0) {
+                    val warning = findViewById<TextView>(R.id.warning)
+                    warning.visibility = View.VISIBLE
                 }
             }
     }

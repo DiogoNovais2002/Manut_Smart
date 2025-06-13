@@ -1,12 +1,12 @@
 <resources>
 
     <!-- App Info -->
-    <string name="app_name">Manut_Smart</string>
+    <string name="app_name">Manut Smart</string>
     <string name="TitleActivityRegister">RegisterActivity</string>
     <string name="Logo">Logo</string>
 
     <!-- Auth & User Interaction -->
-    <string name="Welcome">Bem-vindo</string>
+    <string name="Welcome">Bem-Vindo</string>
     <string name="Email">Email</string>
     <string name="Password">Palavra-Passe</string>
     <string name="Enter">Entrar</string>
@@ -47,7 +47,7 @@
     <string name="UrgencyOfService">Urgência no serviço:</string>
     <string name="DevicesList">Lista de Dispositivos:</string>
     <string name="Photo">Fotografias</string>
-    <string name="ProblemDescription">Descricao do problema:</string>
+    <string name="ProblemDescription">Descrição do problema:</string>
     <string name="LoadPhoto">Carregar fotografia</string>
     <string name="Cancel">Cancelar</string>
     <string name="Confirm">Confirmar</string>
@@ -118,7 +118,6 @@
     <string name="Finish">Finalizar</string>
     <string name="Yes">Sim</string>
     <string name="No">Não</string>
-    <string name="Pending">Pendente</string>
     <string name="InProgress">Em Reparação</string>
     <string name="Finished">Finalizado</string>
 
@@ -130,7 +129,8 @@
 
     <!-- Warning Messages -->
     <string name="FieldAllFields">Preencha todos os campos</string>
-    <string name="EmptyIssue">Não Existem Avarias</string>
+    <string name="EmptyPendingIssue">Não Existem Avarias Pendentes</string>
+    <string name="EmptyFinishedIssue">Não Existem Avarias Pendentes</string>
 
     <!-- Success Messages -->
     <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>
@@ -163,6 +163,8 @@
     <string name="Pending">Pendente</string>
     <string name="In_progress">Em progresso</string>
     <string name="Finish_state">Finalizado</string>
+    <string name="started">Iniciado em:</string>
+    <string name="finished">Finalizado em:</string>
 
     <!-- List Technician -->
     <string name="Email_">Email :</string>

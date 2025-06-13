@@ -2,7 +2,6 @@ package com.ipvc.manut_smart
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -21,27 +20,12 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            val uid = currentUser.uid
-            db.collection("users").document(uid).get()
-                .addOnSuccessListener { document ->
-                    if (document.exists()) {
-                        val role = document.getString("role")
-                        navigateBasedOnRole(role)
-                    } else {
-                        Toast.makeText(this, getString(R.string.UserNotFound), Toast.LENGTH_SHORT).show()
-                    }
-                }
-            return
-        }
-
-        setContentView(R.layout.activity_login)
-
+        // Setup de elementos da UI
         val emailEditText = findViewById<EditText>(R.id.editTextEmail)
         val passwordEditText = findViewById<EditText>(R.id.editTextPassword)
         val loginButton = findViewById<Button>(R.id.buttonLogin)
@@ -72,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                                     }
                                 }
                         } else {
-                            Toast.makeText(this, "Error login: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Erro no login: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                         }
                     }
             } else {
@@ -83,6 +67,25 @@ class LoginActivity : AppCompatActivity() {
         registerText.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
             finish()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Verifica se já há sessão iniciada e redireciona automaticamente
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val uid = currentUser.uid
+            db.collection("users").document(uid).get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val role = document.getString("role")
+                        navigateBasedOnRole(role)
+                    } else {
+                        Toast.makeText(this, getString(R.string.UserNotFound), Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 

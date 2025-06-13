@@ -101,7 +101,22 @@
             android:id="@+id/startDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Iniciada em:"
+            android:textColor="#444"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/finishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#444"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/InterventionDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="#444"
             android:visibility="gone"
             android:layout_marginTop="8dp"/>

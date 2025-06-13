@@ -54,13 +54,12 @@ class ListIssuesUserActivity : AppCompatActivity() {
             .whereEqualTo("userId", user.uid)
             .get()
             .addOnSuccessListener { snapshot ->
-                if (snapshot.isEmpty) {
-                    val warning = findViewById<TextView>(R.id.warning)
-                    warning.visibility = View.VISIBLE
-                }
+                var count = 0
                 for (doc in snapshot.documents) {
                     val state = doc.getString("state") ?: continue
                     if (state != "pending" && state != "in_progress") continue
+
+                    count++
 
                     val deviceId = doc.getString("deviceid") ?: continue
 
@@ -130,7 +129,7 @@ class ListIssuesUserActivity : AppCompatActivity() {
 
                                         if (startDate != null) {
                                             val formatted = android.text.format.DateFormat.format("dd/MM/yyyy HH:mm", startDate.toDate())
-                                            startText.text = "Iniciada em: $formatted"
+                                            startText.text = "${getString(R.string.started)} $formatted"
                                             startText.visibility = View.VISIBLE
                                         } else {
                                             startText.visibility = View.GONE
@@ -147,6 +146,10 @@ class ListIssuesUserActivity : AppCompatActivity() {
 
                             container.addView(issueView)
                         }
+                }
+                if(count == 0){
+                    val warning = findViewById<TextView>(R.id.warning)
+                    warning.visibility = View.VISIBLE
                 }
             }
     }
