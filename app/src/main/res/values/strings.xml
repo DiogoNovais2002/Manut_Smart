@@ -160,6 +160,18 @@
     <string name="Phone">Telefone:</string>
     <string name="Role">Função:</string>
     <string name="Is_Active">Ativo:</string>
+    <string name="Tec_Relatory">Relatorio de tecnicos</string>
+    <string name="Total_Repairs">Total de reparações:</string>
+    <string name="Last_Repair">Última reparação:</string>
+    <string name="Last_Intervention">Última intervenção: -</string>
+    <string name="Avg_Repair">Tempo médio por reparação: -</string>
+    <string name="Last_Intervention_loc">Última intervenção: %1$s (%2$s)</string>
+    <string name="last_intervention_device">Última intervenção: %1$s</string>
+    <string name="last_intervention_error">Última intervenção: Não identificado</string>
+    <string name="Total_repair_num">Total de reparações: %1$d</string>
+    <string name="last_repair_date">Última reparação: %1$s</string>
+    <string name="last_intervation_dev_name">Última intervenção: %1$s (%2$s)</string>
+    <string name="Avg_repair_time">Tempo médio por reparação: %1$s</string>
 
     <!--Filter-->
     <string-array name="filter_options">

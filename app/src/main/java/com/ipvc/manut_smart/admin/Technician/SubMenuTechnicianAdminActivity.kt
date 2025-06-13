@@ -49,5 +49,11 @@ class SubMenuTechnicianAdminActivity : AppCompatActivity() {
             val intent = Intent(this, List_Tec_Admin::class.java)
             startActivity(intent)
         }
+
+        val btnAdmin_tec_Relatory = findViewById<Button>(R.id.btnAdmin_tec_Relatory)
+        btnAdmin_tec_Relatory.setOnClickListener{
+            val intent = Intent(this, Admin_tec_Relatory::class.java)
+            startActivity(intent)
+        }
     }
 }
