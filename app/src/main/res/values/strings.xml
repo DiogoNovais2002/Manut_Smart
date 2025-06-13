@@ -128,6 +128,7 @@
 
     <!-- Warning Messages -->
     <string name="FieldAllFields">Preencha todos os campos</string>
+    <string name="EmptyIssue">Não Existem Avarias</string>
 
     <!-- Success Messages -->
     <string name="CreatedDepartmentSuccessfully">Departamento criado com sucesso</string>

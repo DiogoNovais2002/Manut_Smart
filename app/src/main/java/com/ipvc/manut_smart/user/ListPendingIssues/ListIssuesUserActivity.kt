@@ -1,8 +1,10 @@
 package com.ipvc.manut_smart.user.ListPendingIssues
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import android.util.Base64
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -52,6 +54,10 @@ class ListIssuesUserActivity : AppCompatActivity() {
             .whereEqualTo("userId", user.uid)
             .get()
             .addOnSuccessListener { snapshot ->
+                if (snapshot.isEmpty) {
+                    val warning = findViewById<TextView>(R.id.warning)
+                    warning.visibility = View.VISIBLE
+                }
                 for (doc in snapshot.documents) {
                     val state = doc.getString("state") ?: continue
                     if (state != "pending" && state != "in_progress") continue
@@ -96,6 +102,42 @@ class ListIssuesUserActivity : AppCompatActivity() {
                                 else -> R.color.gray
                             }
                             statusDot.backgroundTintList = ContextCompat.getColorStateList(this, color)
+
+                            val photoView = issueView.findViewById<ImageView>(R.id.photoView)
+                            val photoBase64 = doc.getString("photoBase64")
+                            val textPhoto = issueView.findViewById<TextView>(R.id.titlePhoto)
+
+                            if (!photoBase64.isNullOrEmpty()) {
+                                val imageBytes = Base64.decode(photoBase64, Base64.DEFAULT)
+                                val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                                photoView.setImageBitmap(bitmap)
+                                photoView.visibility = View.VISIBLE
+                                textPhoto.visibility = View.VISIBLE
+                            } else {
+                                photoView.visibility = View.GONE
+                                textPhoto.visibility = View.GONE
+                            }
+
+                            if (state == "in_progress") {
+                                firestore.collection("intervention")
+                                    .whereEqualTo("issue_id", doc.id)
+                                    .limit(1)
+                                    .get()
+                                    .addOnSuccessListener { interSnapshot ->
+                                        val interDoc = interSnapshot.documents.firstOrNull()
+                                        val startDate = interDoc?.getTimestamp("start_date")
+                                        val startText = issueView.findViewById<TextView>(R.id.startDate)
+
+                                        if (startDate != null) {
+                                            val formatted = android.text.format.DateFormat.format("dd/MM/yyyy HH:mm", startDate.toDate())
+                                            startText.text = "Iniciada em: $formatted"
+                                            startText.visibility = View.VISIBLE
+                                        } else {
+                                            startText.visibility = View.GONE
+                                        }
+                                    }
+                            }
+
 
                             btnExpand.setOnClickListener {
                                 val isVisible = detailsLayout.visibility == View.VISIBLE

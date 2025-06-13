@@ -54,7 +54,6 @@ class EnableDisableDepartmentsAdminActivity : AppCompatActivity() {
                 departmentList.clear()
                 for (doc in result) {
                     val dept = Department(
-                        id = doc.id,
                         name = doc.getString("name") ?: "",
                         location = doc.getString("location") ?: "",
                         is_active = doc.getBoolean("is_active") ?: true

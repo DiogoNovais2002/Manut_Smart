@@ -1,7 +1,9 @@
 package com.ipvc.manut_smart.user.HistoryList
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -52,6 +54,10 @@ class IssuesHistoryUserActivity : AppCompatActivity() {
             .whereEqualTo("userId", user.uid)
             .get()
             .addOnSuccessListener { snapshot ->
+                if (snapshot.isEmpty) {
+                    val warning = findViewById<TextView>(R.id.warning)
+                    warning.visibility = View.VISIBLE
+                }
                 for (doc in snapshot.documents) {
                     val state = doc.getString("state") ?: continue
                     if (state != "finished") continue
@@ -95,6 +101,21 @@ class IssuesHistoryUserActivity : AppCompatActivity() {
                                 else -> R.color.gray
                             }
                             statusDot.backgroundTintList = ContextCompat.getColorStateList(this, color)
+
+                            val photoView = issueView.findViewById<ImageView>(R.id.photoView)
+                            val photoBase64 = doc.getString("photoBase64")
+                            val textPhoto = issueView.findViewById<TextView>(R.id.titlePhoto)
+
+                            if (!photoBase64.isNullOrEmpty()) {
+                                val imageBytes = Base64.decode(photoBase64, Base64.DEFAULT)
+                                val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                                        photoView.setImageBitmap(bitmap)
+                                photoView.visibility = View.VISIBLE
+                                textPhoto.visibility = View.VISIBLE
+                            } else {
+                                photoView.visibility = View.GONE
+                                textPhoto.visibility = View.GONE
+                            }
 
                             btnExpand.setOnClickListener {
                                 val isVisible = detailsLayout.visibility == View.VISIBLE

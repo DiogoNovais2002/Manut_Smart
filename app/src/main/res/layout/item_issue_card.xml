@@ -81,5 +81,29 @@
             android:text="Estado: pending ou in_progress"
             android:layout_marginTop="8dp"
             android:textColor="#444" />
+
+        <TextView
+            android:id="@+id/titlePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imagem:"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/Photo" />
+
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciada em:"
+            android:textColor="#444"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"/>
     </LinearLayout>
 </LinearLayout>

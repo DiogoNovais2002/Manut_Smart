@@ -41,6 +41,16 @@
                 android:text="@string/RepairHistory"
                 android:textSize="29sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/warning"
+                android:padding="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/EmptyIssue"
+                android:visibility="gone"
+                android:textSize="20sp" />
+
         </LinearLayout>
 
         <LinearLayout
