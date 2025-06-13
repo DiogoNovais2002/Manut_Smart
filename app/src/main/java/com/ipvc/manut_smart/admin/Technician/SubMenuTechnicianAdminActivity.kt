@@ -55,5 +55,10 @@ class SubMenuTechnicianAdminActivity : AppCompatActivity() {
             val intent = Intent(this, Admin_tec_Relatory::class.java)
             startActivity(intent)
         }
+        val btnEnableDisableTec = findViewById<Button>(R.id.btnEnableDisableTec)
+        btnEnableDisableTec.setOnClickListener{
+            val intent = Intent(this, Enable_disable_tec::class.java)
+            startActivity(intent)
+        }
     }
 }

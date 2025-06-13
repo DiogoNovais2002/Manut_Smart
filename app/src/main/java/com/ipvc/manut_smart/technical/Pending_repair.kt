@@ -28,6 +28,7 @@ import java.util.Locale
 class Pending_repair : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private var selectedFilter = 0
+    private var isActive: Boolean = false  // Guardar o estado do técnico
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +41,24 @@ class Pending_repair : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
+            return
         }
 
+        // Buscar estado de ativo do técnico ANTES de mostrar a lista
+        db.collection("users").document(user.uid).get()
+            .addOnSuccessListener { doc ->
+                isActive = doc.getBoolean("isActive") ?: false
+                setupFilterAndList()
+            }
+            .addOnFailureListener {
+                isActive = false
+                setupFilterAndList()
+            }
+
+        backButton.setOnClickListener { finish() }
+    }
+
+    private fun setupFilterAndList() {
         val spinnerFilter = findViewById<Spinner>(R.id.spinnerFilter)
         val options = listOf(
             getString(R.string.Filter_Filter), getString(R.string.Urgency_Filter),
@@ -63,7 +80,6 @@ class Pending_repair : AppCompatActivity() {
                 }
                 return v
             }
-
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val v = super.getDropDownView(position, convertView, parent)
                 val textView = v as TextView
@@ -80,11 +96,8 @@ class Pending_repair : AppCompatActivity() {
                 selectedFilter = position
                 loadPendingIssues()
             }
-
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
-
-        backButton.setOnClickListener { finish() }
 
         loadPendingIssues()
     }
@@ -143,6 +156,12 @@ class Pending_repair : AppCompatActivity() {
 
                         if (technicalUid == null) {
                             Toast.makeText(this, getString(R.string.Auth_tec), Toast.LENGTH_SHORT).show()
+                            return@setOnClickListener
+                        }
+
+                        // Verificação: só permite se técnico estiver ativo
+                        if (!isActive) {
+                            Toast.makeText(this, "Utilizador desativado, não pode iniciar reparação!", Toast.LENGTH_LONG).show()
                             return@setOnClickListener
                         }
 

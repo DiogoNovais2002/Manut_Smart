@@ -172,6 +172,9 @@
     <string name="last_repair_date">Última reparação: %1$s</string>
     <string name="last_intervation_dev_name">Última intervenção: %1$s (%2$s)</string>
     <string name="Avg_repair_time">Tempo médio por reparação: %1$s</string>
+    <string name="Enable_Disable_Tec">Ativar e desativar tecnicos</string>
+    <string name="name_tec">Nome do Técnico</string>
+    <string name="enable">Ativar</string>
 
     <!--Filter-->
     <string-array name="filter_options">
