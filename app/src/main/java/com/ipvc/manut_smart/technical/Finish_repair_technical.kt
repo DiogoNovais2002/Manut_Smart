@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ipvc.manut_smart.LoginActivity
 import com.ipvc.manut_smart.R
@@ -46,10 +47,7 @@ class Finish_repair_technical : AppCompatActivity() {
 
         loadInProgressIssues()
     }
-    override fun onResume() {
-        super.onResume()
-        loadInProgressIssues()
-    }
+
 
     private fun loadInProgressIssues() {
         val listContainer = findViewById<LinearLayout>(R.id.listContainer)
@@ -57,52 +55,80 @@ class Finish_repair_technical : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         val technicalUid = user?.uid ?: return
 
-        db.collection("issue")
-            .whereEqualTo("state", "in_progress")
+        listContainer.removeAllViews()
+
+        db.collection("intervention")
+            .whereEqualTo("technical_uid", technicalUid)
             .get()
-            .addOnSuccessListener { documents ->
-                listContainer.removeAllViews()
+            .addOnSuccessListener { interventions ->
+                val issueIds = interventions
+                    .mapNotNull { it.getString("issue_id") }
+                    .toSet() // evitar duplicação
 
-                for (document in documents) {
-                    val issue = document.toObject(Issue::class.java)
-                    val issueId = document.id
-
-                    db.collection("intervention")
-                        .whereEqualTo("issue_id", issueId)
-                        .whereEqualTo("technical_uid", technicalUid)
-                        .get()
-                        .addOnSuccessListener { interventions ->
-                            if (!interventions.isEmpty) {
-                                val itemView = LayoutInflater.from(this)
-                                    .inflate(R.layout.item_finish_repair, listContainer, false)
-
-                                itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
-                                itemView.findViewById<TextView>(R.id.tvUrgency).text =
-                                    if (issue.urgency) "Alta" else "Baixa"
-                                itemView.findViewById<TextView>(R.id.tvDescription).text = issue.description
-
-                                val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""
-                                itemView.findViewById<TextView>(R.id.tvDate).text = dateText
-
-                                val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
-                                val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
-                                btnExpand.setOnClickListener {
-                                    detailsLayout.visibility = if (detailsLayout.visibility == View.GONE) View.VISIBLE else View.GONE
-                                }
-
-                                itemView.findViewById<Button>(R.id.btnFinish).setOnClickListener {
-                                    val intent = Intent(this, Finish_Repair_description::class.java)
-                                    intent.putExtra("ISSUE_ID", issueId)
-                                    startActivity(intent)
-                                }
-
-                                listContainer.addView(itemView)
-                            }
-                        }
+                if (issueIds.isEmpty()) {
+                    showNoIssuesMessage(listContainer)
+                    return@addOnSuccessListener
                 }
+
+                db.collection("issue")
+                    .whereIn(FieldPath.documentId(), issueIds.toList())
+                    .whereEqualTo("state", "in_progress")
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        var count = 0
+                        val added = mutableSetOf<String>()
+
+                        for (document in documents) {
+                            val issueId = document.id
+                            if (added.contains(issueId)) continue
+                            added.add(issueId)
+
+                            val issue = document.toObject(Issue::class.java)
+
+                            val itemView = LayoutInflater.from(this)
+                                .inflate(R.layout.item_finish_repair, listContainer, false)
+
+                            itemView.findViewById<TextView>(R.id.tvTitle).text = issue.title
+                            itemView.findViewById<TextView>(R.id.tvUrgency).text =
+                                if (issue.urgency) "Alta" else "Baixa"
+                            itemView.findViewById<TextView>(R.id.tvDescription).text = issue.description
+
+                            val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""
+                            itemView.findViewById<TextView>(R.id.tvDate).text = dateText
+
+                            val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
+                            val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
+                            btnExpand.setOnClickListener {
+                                detailsLayout.visibility =
+                                    if (detailsLayout.visibility == View.GONE) View.VISIBLE else View.GONE
+                            }
+
+                            itemView.findViewById<Button>(R.id.btnFinish).setOnClickListener {
+                                val intent = Intent(this, Finish_Repair_description::class.java)
+                                intent.putExtra("ISSUE_ID", issueId)
+                                startActivity(intent)
+                            }
+
+                            listContainer.addView(itemView)
+                            count++
+                        }
+
+                        if (count == 0) {
+                            showNoIssuesMessage(listContainer)
+                        }
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, getString(R.string.Load_repair_Error), Toast.LENGTH_SHORT).show()
+                    }
             }
             .addOnFailureListener {
-                Toast.makeText(this, getString(R.string.Load_repair_Error), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.Load_history), Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun showNoIssuesMessage(container: LinearLayout) {
+        val noIssuesView = LayoutInflater.from(this)
+            .inflate(R.layout.item_no_issues, container, false)
+        container.addView(noIssuesView)
     }
 }

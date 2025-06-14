@@ -72,7 +72,10 @@ class Finish_Repair_description : AppCompatActivity() {
                                     }
                                     Toast.makeText(this,
                                         getString(R.string.Repair_done), Toast.LENGTH_SHORT).show()
-                                    finish()
+
+                                    val intent = Intent(this, MenuTechnicalActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    startActivity(intent)
                                 }
                             }
                             .addOnFailureListener {
