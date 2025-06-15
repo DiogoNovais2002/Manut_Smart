@@ -2,10 +2,12 @@ package com.ipvc.manut_smart.admin.Technician
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ipvc.manut_smart.R
@@ -21,6 +23,10 @@ class Admin_tec_Relatory : AppCompatActivity() {
         loadTechniciansReport()
         val backButton = findViewById<ImageView>(R.id.returnIcon)
         backButton.setOnClickListener { finish() }
+        val exportButton = findViewById<Button>(R.id.btnExportPdf)
+        exportButton.setOnClickListener {
+            exportReportToPDF()
+        }
     }
 
     private fun loadTechniciansReport() {
@@ -48,6 +54,10 @@ class Admin_tec_Relatory : AppCompatActivity() {
                         val isVisible = detailsLayout.visibility == android.view.View.GONE
                         detailsLayout.visibility = if (isVisible) android.view.View.VISIBLE else android.view.View.GONE
                         expandText.text = if (isVisible) "-" else "+"
+                    }
+                    val individualReportBtn = itemView.findViewById<Button>(R.id.btnIndividualReport)
+                    individualReportBtn.setOnClickListener {
+                        generateIndividualPDF(uid, name)
                     }
 
                     db.collection("intervention")
@@ -143,6 +153,180 @@ class Admin_tec_Relatory : AppCompatActivity() {
 
                     listContainer.addView(itemView)
                 }
+            }
+    }
+    private fun exportReportToPDF() {
+        val document = android.graphics.pdf.PdfDocument()
+        val paint = android.graphics.Paint()
+        val pageInfo = android.graphics.pdf.PdfDocument.PageInfo.Builder(595, 842, 1).create()
+        val page = document.startPage(pageInfo)
+        val canvas = page.canvas
+
+        var y = 50
+        paint.textSize = 16f
+        paint.isFakeBoldText = true
+        canvas.drawText("Relatório dos Técnicos", 200f, y.toFloat(), paint)
+        y += 30
+
+        paint.isFakeBoldText = false
+        db.collection("users").whereEqualTo("role", "technician").get()
+            .addOnSuccessListener { technicians ->
+                for ((index, doc) in technicians.withIndex()) {
+                    val name = doc.getString("name") ?: "Sem Nome"
+                    val uid = doc.id
+                    canvas.drawText("Técnico: $name", 40f, y.toFloat(), paint)
+                    y += 20
+
+                    db.collection("intervention")
+                        .whereEqualTo("technical_uid", uid)
+                        .get()
+                        .addOnSuccessListener { interventions ->
+                            val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                            val total = interventions.size()
+                            var lastDate = "-"
+                            var totalTime: Long = 0
+                            var count = 0
+
+                            val logs = mutableListOf<String>()
+
+                            var maxEndDate: Long = 0
+                            for (interv in interventions) {
+                                val start = interv.getTimestamp("start_date")?.toDate()
+                                val end = interv.getTimestamp("end_date")?.toDate()
+                                val issueId = interv.getString("issue_id") ?: "N/A"
+                                if (start != null && end != null) {
+                                    totalTime += (end.time - start.time)
+                                    count++
+                                    logs.add("• ${sdf.format(start)} até ${sdf.format(end)} (ID: $issueId)")
+
+                                    if (end.time > maxEndDate) {
+                                        maxEndDate = end.time
+                                        lastDate = sdf.format(end)
+                                    }
+                                }
+                            }
+
+                            val avgTime = if (count > 0) {
+                                val mins = (totalTime / 1000 / 60) % 60
+                                val hrs = (totalTime / 1000 / 60 / 60)
+                                "${hrs}h ${mins}m"
+                            } else {
+                                "-"
+                            }
+
+                            canvas.drawText("Total Reparações: $total", 60f, y.toFloat(), paint)
+                            y += 20
+                            canvas.drawText("Última Reparação: $lastDate", 60f, y.toFloat(), paint)
+                            y += 20
+                            canvas.drawText("Tempo Médio: $avgTime", 60f, y.toFloat(), paint)
+                            y += 20
+
+                            canvas.drawText("Trabalhos Realizados:", 60f, y.toFloat(), paint)
+                            y += 20
+                            logs.take(5).forEach { log ->
+                                canvas.drawText(log, 80f, y.toFloat(), paint)
+                                y += 20
+                            }
+
+                            y += 30
+
+                            if (index == technicians.size() - 1) {
+                                document.finishPage(page)
+
+                                val fileName = "Relatorio_Tecnicos.pdf"
+                                val filePath = getExternalFilesDir(null)?.resolve(fileName)
+                                filePath?.let {
+                                    document.writeTo(it.outputStream())
+                                    Toast.makeText(this, "PDF exportado para ${it.absolutePath}", Toast.LENGTH_LONG).show()
+                                }
+                                document.close()
+                            }
+                        }
+                }
+            }
+    }
+    private fun generateIndividualPDF(uid: String, name: String) {
+        val document = android.graphics.pdf.PdfDocument()
+        val paint = android.graphics.Paint()
+        val pageInfo = android.graphics.pdf.PdfDocument.PageInfo.Builder(595, 842, 1).create()
+        val page = document.startPage(pageInfo)
+        val canvas = page.canvas
+
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+
+        var y = 50
+        paint.textSize = 16f
+        paint.isFakeBoldText = true
+        canvas.drawText("Relatório Técnico", 220f, y.toFloat(), paint)
+        y += 30
+
+        paint.isFakeBoldText = false
+        canvas.drawText("Técnico: $name", 40f, y.toFloat(), paint)
+        y += 20
+
+        db.collection("intervention")
+            .whereEqualTo("technical_uid", uid)
+            .get()
+            .addOnSuccessListener { interventions ->
+                var totalTime: Long = 0
+                var count = 0
+                var lastDate = "-"
+                var maxEndDate: Long = 0
+                val logs = mutableListOf<String>()
+
+                for (interv in interventions) {
+                    val start = interv.getTimestamp("start_date")?.toDate()
+                    val end = interv.getTimestamp("end_date")?.toDate()
+                    val issueId = interv.getString("issue_id") ?: "N/A"
+
+                    if (start != null && end != null) {
+                        totalTime += (end.time - start.time)
+                        count++
+                        logs.add("• ${sdf.format(start)} até ${sdf.format(end)} (ID: $issueId)")
+
+                        if (end.time > maxEndDate) {
+                            maxEndDate = end.time
+                            lastDate = sdf.format(end)
+                        }
+                    }
+                }
+
+                val avgTime = if (count > 0) {
+                    val mins = (totalTime / 1000 / 60) % 60
+                    val hrs = (totalTime / 1000 / 60 / 60)
+                    "${hrs}h ${mins}m"
+                } else {
+                    "-"
+                }
+
+                canvas.drawText("Total de Reparações: ${interventions.size()}", 40f, y.toFloat(), paint)
+                y += 20
+                canvas.drawText("Última Reparação: $lastDate", 40f, y.toFloat(), paint)
+                y += 20
+                canvas.drawText("Tempo Médio: $avgTime", 40f, y.toFloat(), paint)
+                y += 20
+                canvas.drawText("Trabalhos Recentes:", 40f, y.toFloat(), paint)
+                y += 20
+
+                logs.take(5).forEach { log ->
+                    canvas.drawText(log, 60f, y.toFloat(), paint)
+                    y += 20
+                }
+
+                document.finishPage(page)
+
+                val fileName = "Relatorio_$name.pdf"
+                val filePath = getExternalFilesDir(null)?.resolve(fileName)
+                try {
+                    filePath?.let {
+                        document.writeTo(it.outputStream())
+                        Toast.makeText(this, "Relatório de $name exportado para ${it.absolutePath}", Toast.LENGTH_LONG).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Erro ao gerar PDF: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+
+                document.close()
             }
     }
 }
