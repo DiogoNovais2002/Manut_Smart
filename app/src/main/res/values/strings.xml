@@ -44,10 +44,10 @@
     <string name="RepairList">Lista de Avarias</string>
     <string name="PendingRepairs">Reparações Pendentes</string>
     <string name="ChooseDevice">Escolha o tipo de dispositivo com problema:</string>
-    <string name="UrgencyOfService">Urgência no serviço:</string>
+    <string name="UrgencyOfService">Urgência No Serviço:</string>
     <string name="DevicesList">Lista de Dispositivos:</string>
     <string name="Photo">Fotografias</string>
-    <string name="ProblemDescription">Descrição do problema:</string>
+    <string name="ProblemDescription">Descrição Do Problema:</string>
     <string name="LoadPhoto">Carregar fotografia</string>
     <string name="Cancel">Cancelar</string>
     <string name="Confirm">Confirmar</string>
