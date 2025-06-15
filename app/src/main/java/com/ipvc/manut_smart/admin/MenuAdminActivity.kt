@@ -50,6 +50,8 @@ class MenuAdminActivity : AppCompatActivity() {
 
         val repairButton = findViewById<Button>(R.id.repair)
         repairButton.setOnClickListener {
+            val intent = Intent(this, List_all_repair_admin::class.java)
+            startActivity(intent)
         }
 
         val departmentButton = findViewById<Button>(R.id.department)
