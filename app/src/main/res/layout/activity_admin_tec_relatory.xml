@@ -58,13 +58,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnExportPdf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Exportar Relatório em PDF"
-        android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:layout_marginBottom="40dp"/>
 </RelativeLayout>
