@@ -1,0 +1,199 @@
+<resources>
+
+    <!-- App Info -->
+    <string name="app_name">Manut Smart</string>
+    <string name="TitleActivityRegister">RegisterActivity</string>
+    <string name="Logo">Logo</string>
+
+    <!-- Auth & User Interaction -->
+    <string name="Welcome">Welcome</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Enter">Login</string>
+    <string name="Register">Dont have an account? Register</string>
+    <string name="CreateAccount">Create Account</string>
+    <string name="Name">Name</string>
+    <string name="MobileNumber">Mobile Number</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <string name="RegistarBtn">Register</string>
+    <string name="TextRegister">Already have an account? Sign in</string>
+    <string name="Hi">Hi</string>
+    <string name="Logout">Logout</string>
+    <string name="Mesage">Message...</string>
+    <string name="UserDisabled">User disabled. Contact the administrator.</string>
+    <string name="UserNotFound">Error: User not found</string>
+
+    <!-- Admin & Navigation -->
+    <string name="IntroAdmin">Equipment Fault Management</string>
+    <string name="Repair">Repairs</string>
+    <string name="Departement">Departments</string>
+    <string name="Devices">Devices</string>
+    <string name="Tecnic">Technicians</string>
+    <string name="Back">Back</string>
+    <string name="Search">Search</string>
+    <string name="Filter">Filter</string>
+    <string name="Urgency">Urgency</string>
+    <string name="Date">Request Date</string>
+    <string name="Plus">+</string>
+
+    <!-- Fault Reporting -->
+    <string name="ReportFault">Report Fault</string>
+    <string name="Fault">Issue:</string>
+    <string name="OngoingReports">Ongoing Faults</string>
+    <string name="FaultHistory">Fault History</string>
+    <string name="RepairList">Fault List</string>
+    <string name="PendingRepairs">Pending Repairs</string>
+    <string name="ChooseDevice">Choose the type of device with an issue:</string>
+    <string name="UrgencyOfService">Service Urgency:</string>
+    <string name="DevicesList">Device List:</string>
+    <string name="Photo">Photos</string>
+    <string name="ProblemDescription">Problem Description:</string>
+    <string name="LoadPhoto">Upload Photo</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Confirm">Confirm</string>
+    <string name="IssueRegistered">Issue successfully registered</string>
+
+    <!-- Repair Flow -->
+    <string name="StartRepair">Start Repair</string>
+    <string name="OngoingRepair">Ongoing Repair</string>
+    <string name="FinishRepair">Finish Repair</string>
+    <string name="RepairHistory">Repair History</string>
+    <string name="Repair1">Repair</string>
+    <string name="RepairDescription">Repair Description</string>
+    <string name="state">State</string>
+    <string name="title">Title</string>
+
+    <!-- Device Types -->
+    <string name="Computer">Computer</string>
+    <string name="Mobile">Mobile</string>
+    <string name="Tv">Television</string>
+    <string name="Smartwatch">Smartwatch</string>
+    <string name="Console">Console</string>
+    <string name="Fixed">Desktop Computer</string>
+    <string name="projector">Projector</string>
+    <string name="InteractiveWhiteboard">Interactive Whiteboard</string>
+
+    <!-- Urgency Levels -->
+    <string name="Light">Low</string>
+    <string name="Average">Medium</string>
+    <string name="High">High</string>
+
+    <!-- Device Management -->
+    <string name="DeviceRegister">Register Device</string>
+    <string name="DeviceList">Device List</string>
+    <string name="EnableDisableDevice">Enable / Disable Device</string>
+    <string name="DevicesManagement">Device Management:</string>
+    <string name="AddDevice">Add Device</string>
+    <string name="Model">Model</string>
+    <string name="Branch">Brand</string>
+    <string name="Number">Serial Number</string>
+    <string name="DevicesManager">Device Management</string>
+
+    <!-- Technician Management -->
+    <string name="TechniciansRegister">Register Technician</string>
+    <string name="TechniciansList">Technician List</string>
+    <string name="EnableTechnicians">Enable / Disable Technician</string>
+    <string name="TechnicalReports">Technician Report</string>
+    <string name="TecList">Technician List</string>
+    <string name="TechnicalManager">Technician Management</string>
+    <string name="AddTechnician">Add Technician</string>
+
+    <!-- Department Management -->
+    <string name="CreateDepartment">Create Department</string>
+    <string name="DepartmentList">Department List</string>
+    <string name="EnableDisableDepartment">Enable / Disable Department</string>
+    <string name="DepartmentManager">Department Management</string>
+    <string name="SingleDepartement">Department</string>
+    <string name="SelectDepartment">Select Department</string>
+
+    <!-- Location & Description -->
+    <string name="Description">Description</string>
+    <string name="Loc">Location</string>
+
+    <!-- States -->
+    <string name="Active">Enable</string>
+    <string name="Inactive">Disable</string>
+    <string name="Enabled">Enabled</string>
+    <string name="Disabled">Disabled</string>
+    <string name="Finish">Finish</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="InProgress">In Repair</string>
+    <string name="Finished">Finished</string>
+
+    <!-- Error Messages -->
+    <string name="ErrorLoadingData">Error loading data</string>
+    <string name="ErrorUpdateData">Error updating data</string>
+    <string name="ErrorRegistering">Registration error</string>
+
+    <!-- Warning Messages -->
+    <string name="FieldAllFields">Please fill in all fields</string>
+    <string name="EmptyPendingIssue">No Pending Issues</string>
+    <string name="EmptyFinishedIssue">No Pending Issues</string>
+
+    <!-- Success Messages -->
+    <string name="CreatedDepartmentSuccessfully">Department created successfully</string>
+    <string name="RegisteredDeviceSuccessfully">Device registered successfully</string>
+    <string name="Ongoing_Repair">Ongoing Repairs</string>
+
+    <!-- Pending Repair -->
+    <string name="Auth_tec">Technician not authenticated!</string>
+    <string name="high">High</string>
+    <string name="low">Low</string>
+    <string name="Urgency_Filter">Urgency</string>
+    <string name="Date_Filter">Date</string>
+    <string name="Filter_Filter">Filter</string>
+    <string name="State_changed">Status changed and intervention created!</string>
+
+    <!-- Finish_Repair_description -->
+    <string name="Error_Intervention">Error creating intervention!</string>
+    <string name="State_change_error">Error updating status</string>
+    <string name="Get_repair_error">Error loading repairs</string>
+    <string name="Intervencion_not_find">Intervention not found!</string>
+    <string name="Repair_done">Repair completed!</string>
+    <string name="update_intervention_error">Error updating intervention.</string>
+    <string name="Finish_Repair_Error">Error finishing repair.</string>
+    <string name="Write_description">Please fill in the description!</string>
+
+    <!-- Finish_Repair -->
+    <string name="Load_repair_Error">Error loading ongoing repairs</string>
+    <string name="Load_history">Error loading history</string>
+
+    <!-- Estado -->
+    <string name="Pending">Pending</string>
+    <string name="In_progress">In progress</string>
+    <string name="Finish_state">Finished</string>
+    <string name="started">Started on:</string>
+    <string name="finished">Finished on:</string>
+
+    <!-- List Technician -->
+    <string name="Email_">Email:</string>
+    <string name="Phone">Phone:</string>
+    <string name="Role">Role:</string>
+    <string name="Is_Active">Active:</string>
+    <string name="Tec_Relatory">Technician Reports</string>
+    <string name="Total_Repairs">Total repairs:</string>
+    <string name="Last_Repair">Last repair:</string>
+    <string name="Last_Intervention">Last intervention: -</string>
+    <string name="Avg_Repair">Average repair time: -</string>
+    <string name="Last_Intervention_loc">Last intervention: %1$s (%2$s)</string>
+    <string name="last_intervention_device">Last intervention: %1$s</string>
+    <string name="last_intervention_error">Last intervention: Not identified</string>
+    <string name="Total_repair_num">Total repairs: %1$d</string>
+    <string name="last_repair_date">Last repair: %1$s</string>
+    <string name="last_intervation_dev_name">Last intervention: %1$s (%2$s)</string>
+    <string name="Avg_repair_time">Average repair time: %1$s</string>
+    <string name="Enable_Disable_Tec">Enable and disable technicians</string>
+    <string name="name_tec">Technician Name</string>
+    <string name="enable">Enable</string>
+    <string name="No_Repair">No issues to finalize</string>
+    <string name="Repair_list">Repair List</string>
+
+    <!--Filter-->
+    <string-array name="filter_options">
+        <item>Filter</item>
+        <item>Urgency</item>
+        <item>Date</item>
+    </string-array>
+
+</resources>
