@@ -1,7 +1,9 @@
 package com.ipvc.manut_smart.technical
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -22,6 +24,7 @@ import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.technical.IssueData.Issue
 import java.text.SimpleDateFormat
 import java.util.Locale
+
 
 class Finish_repair_technical : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
@@ -63,7 +66,7 @@ class Finish_repair_technical : AppCompatActivity() {
             .addOnSuccessListener { interventions ->
                 val issueIds = interventions
                     .mapNotNull { it.getString("issue_id") }
-                    .toSet() // evitar duplicação
+                    .toSet()
 
                 if (issueIds.isEmpty()) {
                     showNoIssuesMessage(listContainer)
@@ -96,6 +99,27 @@ class Finish_repair_technical : AppCompatActivity() {
                             val dateText = issue.date_registration?.toDate()?.let { sdf.format(it) } ?: ""
                             itemView.findViewById<TextView>(R.id.tvDate).text = dateText
 
+
+                            val photoView = itemView.findViewById<ImageView>(R.id.photoView)
+                            val textPhoto = itemView.findViewById<TextView>(R.id.titlePhoto)
+                            val photoBase64 = document.getString("photoBase64")
+
+                            if (!photoBase64.isNullOrEmpty()) {
+                                try {
+                                    val imageBytes = Base64.decode(photoBase64, Base64.DEFAULT)
+                                    val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                                    photoView.setImageBitmap(bitmap)
+                                    photoView.visibility = View.VISIBLE
+                                    textPhoto.visibility = View.VISIBLE
+                                } catch (e: Exception) {
+                                    photoView.visibility = View.GONE
+                                    textPhoto.visibility = View.GONE
+                                }
+                            } else {
+                                photoView.visibility = View.GONE
+                                textPhoto.visibility = View.GONE
+                            }
+
                             val btnExpand = itemView.findViewById<FrameLayout>(R.id.btnExpand)
                             val detailsLayout = itemView.findViewById<LinearLayout>(R.id.detailsLayout)
                             btnExpand.setOnClickListener {
@@ -125,6 +149,7 @@ class Finish_repair_technical : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.Load_history), Toast.LENGTH_SHORT).show()
             }
     }
+
 
     private fun showNoIssuesMessage(container: LinearLayout) {
         val noIssuesView = LayoutInflater.from(this)

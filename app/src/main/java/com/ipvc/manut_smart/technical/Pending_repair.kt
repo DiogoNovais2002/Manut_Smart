@@ -1,6 +1,7 @@
 package com.ipvc.manut_smart.technical
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +25,8 @@ import com.ipvc.manut_smart.R
 import com.ipvc.manut_smart.technical.IssueData.Issue
 import java.text.SimpleDateFormat
 import java.util.Locale
+import android.util.Base64
+
 
 class Pending_repair : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
@@ -143,6 +146,26 @@ class Pending_repair : AppCompatActivity() {
                     itemView.findViewById<TextView>(R.id.tvDate).text = dateText
                     detailsLayout.visibility = View.GONE
 
+                    val photoView = itemView.findViewById<ImageView>(R.id.photoView)
+                    val textPhoto = itemView.findViewById<TextView>(R.id.titlePhoto)
+                    val photoBase64 = doc.getString("photoBase64")
+
+                    if (!photoBase64.isNullOrEmpty()) {
+                        try {
+                            val imageBytes = Base64.decode(photoBase64, Base64.DEFAULT)
+                            val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                            photoView.setImageBitmap(bitmap)
+                            photoView.visibility = View.VISIBLE
+                            textPhoto.visibility = View.VISIBLE
+                        } catch (e: Exception) {
+                            photoView.visibility = View.GONE
+                            textPhoto.visibility = View.GONE
+                        }
+                    } else {
+                        photoView.visibility = View.GONE
+                        textPhoto.visibility = View.GONE
+                    }
+
                     val expandText = btnExpand.findViewById<TextView>(R.id.expandText)
                     btnExpand.setOnClickListener {
                         val isVisible = detailsLayout.visibility == View.GONE
@@ -159,18 +182,17 @@ class Pending_repair : AppCompatActivity() {
                             return@setOnClickListener
                         }
 
-                        // Verificação: só permite se técnico estiver ativo
                         if (!isActive) {
                             Toast.makeText(this, "Utilizador desativado, não pode iniciar reparação!", Toast.LENGTH_LONG).show()
                             return@setOnClickListener
                         }
 
-                        // 1º Atualiza o estado do issue
+
                         db.collection("issue")
                             .document(issueId)
                             .update("state", "in_progress")
                             .addOnSuccessListener {
-                                // 2º Cria a intervention
+
                                 val interventionData = hashMapOf(
                                     "start_date" to Timestamp.now(),
                                     "end_date" to null,
